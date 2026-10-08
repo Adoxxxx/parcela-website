@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ausklapphaus mit 73 m² | Parcela</title>
+<meta name="description" content="73 m², drei Schlafzimmer, kommt zusammengeklappt per LKW. Prüfen Sie online, ob das Haus auf Ihr Grundstück passt.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ausklapphaus mit 73 m² | Parcela">
+<meta property="og:description" content="73 m², drei Schlafzimmer, kommt zusammengeklappt per LKW. Prüfen Sie online, ob das Haus auf Ihr Grundstück passt.">
+<meta name="theme-color" content="#15262B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{color-scheme:light}
+[hidden]{display:none!important}
+/* Layout: a full-bleed film of the house carries the offer (headline, price, one button) bottom-left.
+   Below it the page argues in a fixed order: price, product, delivery, own plot, show house, doubts, ask.
+   The price and the WhatsApp button repeat; everything else stays quiet. Text is left-aligned, 1200px measure. */
+:root{
+  --paper:#ECEFEA; --sheet:#F8F9F5; --ink:#15262B; --ink-2:#4A5C60; --line:#C2CBC6;
+  --build:#C8341C; --on-build:#FFFFFF; --lot:#DCE6D2; --limit:#2A6C88; --glass:#B9D3DD;
+  --face-top:#F8F9F5; --face-roof:#E6EBE6; --face-side:#D6DDD8; --face-front:#C3CCC7;
+  --wa:#25D366; --on-wa:#06270F;
+  --band:#15262B; --on-band:#ECEFEA; --on-band-2:#A9BAB8;
+  --film:#0B1517; --on-film:#FFFFFF; --on-film-2:#D5DEDB; --shade:8,16,18;
+  --font-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-data:"Barlow Semi Condensed","DIN Alternate","Arial Narrow",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+    --build:#FF6B4A; --on-build:#1C0A05; --lot:#1B3127; --limit:#73B9D6; --glass:#2F5868;
+    --face-top:#2C4046; --face-roof:#25383D; --face-side:#1E3035; --face-front:#17282C;
+    --wa:#25D366; --on-wa:#06270F;
+    --band:#1B2F34; --on-band:#E4EBE6; --on-band-2:#9BAEAC;
+    --film:#0B1517; --on-film:#FFFFFF; --on-film-2:#D5DEDB; --shade:8,16,18;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+  --build:#FF6B4A; --on-build:#1C0A05; --lot:#1B3127; --limit:#73B9D6; --glass:#2F5868;
+  --face-top:#2C4046; --face-roof:#25383D; --face-side:#1E3035; --face-front:#17282C;
+  --wa:#25D366; --on-wa:#06270F;
+  --band:#1B2F34; --on-band:#E4EBE6; --on-band-2:#9BAEAC;
+  --film:#0B1517; --on-film:#FFFFFF; --on-film-2:#D5DEDB; --shade:8,16,18;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.55 var(--font-body);-webkit-text-size-adjust:100%}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--font-display);font-stretch:125%;letter-spacing:-.015em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.15rem,5.6vw,4.1rem);font-weight:750;line-height:1;letter-spacing:-.028em;max-width:15ch}
+h2{font-size:clamp(1.6rem,3.3vw,2.5rem);font-weight:680;max-width:20ch}
+h3{font-size:1.14rem;font-weight:650}
+p{margin:0}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+img{height:auto}
+dl,dd{margin:0}
+:focus-visible{outline:2px solid var(--limit);outline-offset:2px}
+.data{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.hint{font-size:.86rem;color:var(--ink-2);line-height:1.4}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:650 1.04rem var(--font-body);border-radius:4px;padding:13px 20px;cursor:pointer;text-decoration:none;border:1px solid transparent;line-height:1.15}
+.btn svg{width:22px;height:22px;flex:none}
+.btn.wa{background:var(--wa);color:var(--on-wa)}
+.btn.wa:hover{filter:brightness(1.06)}
+.btn.line{background:transparent;color:inherit;border-color:currentColor}
+.btn.small{padding:8px 13px;font-size:.94rem}
+.btn.small svg{width:18px;height:18px}
+.linkbtn{font:inherit;font-weight:550;background:none;border:0;padding:0;color:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* film hero */
+.film{position:relative;background:var(--film);color:var(--on-film);overflow:hidden;display:grid;min-height:clamp(560px,48vw,720px)}
+.film video,.film .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(var(--shade),.92) 0%,rgba(var(--shade),.62) 34%,rgba(var(--shade),.12) 66%,rgba(var(--shade),.5) 100%)}
+.film-in{position:relative;z-index:2;display:grid;grid-template-rows:auto 1fr;gap:28px;width:100%}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-stretch:125%;font-weight:750;font-size:1.3rem;letter-spacing:-.02em;color:var(--on-film)}
+.brand svg{width:28px;height:28px;flex:none}
+.top-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--on-film);border-radius:4px;overflow:hidden}
+.lang button{font:500 .88rem var(--font-data);background:transparent;color:var(--on-film);border:0;padding:7px 10px;cursor:pointer}
+.lang button + button{border-left:1px solid var(--on-film)}
+.lang button[aria-pressed="true"]{background:var(--on-film);color:var(--film)}
+.offer{align-self:end;display:grid;gap:18px;padding-bottom:clamp(26px,4vw,48px)}
+.offer .sub{font-size:clamp(1.05rem,1.7vw,1.28rem);max-width:46ch;color:var(--on-film-2)}
+.deal{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px}
+.price{display:grid;gap:2px}
+.price b{font:800 clamp(2.3rem,5vw,3.5rem)/1 var(--font-display);font-stretch:125%;letter-spacing:-.03em;white-space:nowrap}
+.price b small{font:500 1.05rem var(--font-data);letter-spacing:0;margin-right:8px}
+.price > span{font-size:.9rem;color:var(--on-film-2);max-width:34ch;line-height:1.35}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.viz{position:absolute;z-index:3;right:12px;bottom:12px;display:flex;gap:8px;align-items:center}
+.tag{font:500 .8rem var(--font-data);background:rgba(var(--shade),.7);color:var(--on-film);border-radius:3px;padding:3px 8px}
+.viz button{font:500 .8rem var(--font-data);background:rgba(var(--shade),.7);color:var(--on-film);border:1px solid var(--on-film-2);border-radius:3px;padding:2px 8px;cursor:pointer}
+@media (max-width:720px){.film video{object-position:62% 35%}.viz{position:static;justify-content:flex-start;padding:0 16px 14px;z-index:2}.film{grid-template-rows:1fr auto}}
+
+/* fact strip */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.facts div{padding:18px 18px 18px 0;min-width:0}
+.facts div + div{border-left:1px solid var(--line);padding-left:18px}
+.facts dt{font-size:.86rem;color:var(--ink-2)}
+.facts dd{font:650 clamp(1.25rem,2.4vw,1.7rem)/1.15 var(--font-display);font-stretch:112%;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){border-left:0;padding-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* sections */
+.band{padding-block:clamp(48px,7vw,96px)}
+.band + .band{border-top:1px solid var(--line)}
+.stack{display:grid;gap:clamp(22px,3vw,36px)}
+.intro{display:grid;gap:12px;max-width:60ch}
+.intro p{color:var(--ink-2);font-size:1.1rem}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.two.wide-right{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+@media (max-width:860px){.two,.two.wide-right{grid-template-columns:minmax(0,1fr)}}
+.sheet{background:var(--sheet);border:1px solid var(--ink)}
+
+/* price comparison */
+.bars{display:grid;gap:20px}
+.bar-row{display:grid;gap:6px}
+.bar-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.bar-head span{font-size:.98rem}
+.bar-head b{font:650 1.25rem var(--font-display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.track{position:relative;height:34px;background:transparent;border-left:1px solid var(--ink)}
+.track i{position:absolute;top:0;bottom:0;left:0;display:block}
+.track .solid{background:var(--ink-2)}
+.track .range{background:repeating-linear-gradient(135deg,var(--ink-2) 0 5px,transparent 5px 9px);border:1px solid var(--ink-2)}
+.track .ours{background:var(--build)}
+.bar-row.ours .bar-head b{color:var(--build)}
+.aside{display:grid;gap:22px;align-content:start}
+.aside > div{display:grid;gap:8px}
+.aside p{color:var(--ink-2)}
+.rows{display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 18px;font-size:.98rem}
+.rows dt{color:var(--ink-2)}
+
+/* product */
+.clip{position:relative;background:var(--film)}
+.clip video{width:100%;aspect-ratio:16/8;object-fit:cover}
+.clip .tag{position:absolute;right:10px;bottom:10px}
+.gain{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.gain li{display:grid;gap:3px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.gain li:last-child{border-bottom:0;padding-bottom:0}
+.gain p{color:var(--ink-2)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.shots figure{margin:0;position:relative}
+.shots figure:first-child{grid-column:1/-1}
+.shots img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.shots .tag{position:absolute;right:8px;bottom:8px}
+.specs{padding:16px 18px;display:grid;gap:10px;align-content:start}
+@media (max-width:520px){.shots{grid-template-columns:1fr}}
+
+/* unfolding figure */
+.unfold{padding:14px 14px 0}
+.unfold svg{width:100%;height:auto;display:block}
+.unfold-cap{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid var(--ink);margin:10px -14px 0;padding:9px 14px}
+.unfold-cap b{font:600 1.3rem var(--font-data);font-variant-numeric:tabular-nums}
+.iso polygon{stroke:var(--ink);stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.i-top{fill:var(--face-top)} .i-roof{fill:var(--face-roof)} .i-side{fill:var(--face-side)} .i-front{fill:var(--face-front)}
+.i-glass{fill:var(--glass)} .i-door{fill:var(--ink-2)}
+.iso polygon.i-ground{fill:var(--lot);stroke-dasharray:7 3 1.5 3;stroke-width:1}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:22px}
+.steps.four{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,34px)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 14px;align-content:start}
+.steps li::before{content:counter(s);grid-row:1/3;font:750 2.2rem/1 var(--font-display);font-stretch:125%;color:var(--build);min-width:1.05em}
+.steps p{color:var(--ink-2);font-size:.99rem}
+
+/* plot check */
+.field{display:grid;gap:5px;min-width:0}
+.field label{font-size:.9rem;color:var(--ink-2)}
+.num{display:flex;align-items:center;border:1px solid var(--ink);border-radius:4px;background:var(--sheet)}
+.num input{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:500 1.25rem var(--font-data);font-variant-numeric:tabular-nums;padding:10px 4px 10px 12px}
+.num input:focus{outline:none}
+.num:focus-within{outline:2px solid var(--limit);outline-offset:2px}
+.num span{padding-right:12px;font:500 1rem var(--font-data);color:var(--ink-2)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.verdict{border:1px solid var(--ink);background:var(--sheet);padding:16px 18px;display:grid;gap:6px}
+.verdict b{font:680 1.3rem/1.2 var(--font-display);font-stretch:112%}
+.verdict.no b{color:var(--build)}
+.verdict p{color:var(--ink-2)}
+.plan svg{display:block;width:100%;height:auto}
+.tb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.tb div{padding:8px 12px 9px;border-left:1px solid var(--ink);min-width:0}
+.tb div:first-child{border-left:0}
+.tb dt{font-size:.78rem;color:var(--ink-2);line-height:1.2}
+.tb dd{font:500 1.02rem/1.25 var(--font-data);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.p-plot{fill:var(--lot);stroke:var(--ink);stroke-width:1.5;stroke-dasharray:14 4 2 4}
+.p-limit{fill:none;stroke:var(--limit);stroke-width:1.3;stroke-dasharray:6 4}
+.p-limit-t{fill:var(--limit);font:500 12px var(--font-data)}
+.p-build{stroke:var(--build);stroke-width:2}
+.p-build-bg{fill:var(--sheet)}
+.p-hatch{stroke:var(--build);stroke-width:1.1}
+.p-code{fill:var(--build);font:600 14px var(--font-data);paint-order:stroke;stroke:var(--sheet);stroke-width:4px;stroke-linejoin:round}
+.p-street{fill:var(--line)}
+.p-t{fill:var(--ink);font:500 13px var(--font-data);font-variant-numeric:tabular-nums}
+.p-t2{fill:var(--ink-2);font:500 12px var(--font-data)}
+.dim line{stroke:var(--ink);stroke-width:1}
+.p-bar-a{fill:var(--ink)} .p-bar-b{fill:var(--sheet);stroke:var(--ink);stroke-width:1}
+
+/* show house */
+.show figure{margin:0;position:relative}
+.show img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.show .tag{position:absolute;right:8px;bottom:8px}
+.show .text{display:grid;gap:18px;align-content:center}
+.show .text p{color:var(--ink-2);font-size:1.08rem;max-width:48ch}
+.place{font:600 1.05rem var(--font-data);color:var(--ink)}
+
+/* faq */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:15px 0}
+.faq summary{cursor:pointer;font-weight:620;font-size:1.08rem;margin-left:1.2em}
+.faq details p{margin:8px 0 0 1.2em;color:var(--ink-2);max-width:66ch}
+
+/* other sizes */
+.alts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,36px)}
+.alt{display:grid;gap:10px;grid-template-rows:auto auto 1fr;min-width:0}
+.alt figure{margin:0;background:var(--sheet);border:1px solid var(--line);padding:12px}
+.alt figure svg{display:block;width:100%;height:150px}
+.alt .head{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;flex-wrap:wrap}
+.alt .size{font:500 .98rem var(--font-data);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.alt p{color:var(--ink-2);font-size:.99rem}
+.more a{font-weight:550;text-underline-offset:4px}
+@media (max-width:860px){
+  .alts{grid-template-columns:minmax(0,1fr);gap:0;border-top:1px solid var(--line)}
+  .alt{grid-template-columns:112px minmax(0,1fr);grid-template-rows:auto;column-gap:14px;row-gap:7px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .alt figure{grid-column:1;grid-row:1/span 3;align-self:start;padding:8px}
+  .alt figure svg{height:76px}
+  .alt > :not(figure){grid-column:2}
+}
+
+/* closing band */
+.close{background:var(--band);color:var(--on-band)}
+.close .wrap{display:grid;gap:22px;justify-items:start}
+.close p{color:var(--on-band-2);font-size:1.12rem;max-width:52ch}
+.close .price b{color:var(--on-band)}
+.close .price > span{color:var(--on-band-2)}
+.numline{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;color:var(--on-band-2)}
+.numline b{font:600 1.3rem var(--font-data);color:var(--on-band);user-select:all;letter-spacing:.01em}
+footer{padding-block:24px 30px;color:var(--ink-2);font-size:.88rem}
+footer p{max-width:86ch}
+.legal{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:12px}
+.altp{font:650 1.12rem var(--font-display);font-stretch:112%;color:var(--ink)}
+
+/* phone bar */
+.bar{display:none}
+@media (max-width:760px){
+  .bar{display:flex;position:fixed;z-index:20;left:0;right:0;bottom:0;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--ink)}
+  .bar b{font:750 1.2rem var(--font-display);font-stretch:112%;white-space:nowrap}
+  .bar b small{font:500 .9rem var(--font-data);margin-right:5px}
+  body{padding-bottom:70px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="film" id="top">
+  <video id="film" autoplay muted loop playsinline preload="metadata" poster="media/hero.jpg" aria-hidden="true"><source src="media/hero.mp4" type="video/mp4"></video>
+  <div class="film-in wrap">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Parcela">
+        <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" fill="none" stroke="var(--on-film)" stroke-width="1.6" stroke-dasharray="6 2 1.5 2"/><rect x="8" y="10" width="13" height="9" fill="var(--build)"/></svg>
+        Parcela
+      </a>
+      <div class="top-right">
+        <div class="lang" role="group" aria-label="Sprache, jezik, language">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="bs" aria-pressed="false">BS</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+    <div class="offer">
+      <h1 data-i18n="h1">Ein Haus zum Preis eines Kleinwagens.</h1>
+      <p class="sub" data-i18n="sub">73 m², drei Schlafzimmer. Kommt zusammengeklappt per LKW und wird auf Ihrem Grundstück aufgeklappt.</p>
+      <div class="deal">
+        <div class="price"><b><small data-i18n="from">ab</small><span data-price="f73">19.990 €</span></b><span data-i18n="price.note">Preis für das Haus. Fundament, Anschlüsse und Genehmigung kommen dazu.</span></div>
+        <div class="cta-row">
+          <a class="btn wa" data-wa="general" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="cta.wa">Auf WhatsApp anfragen</span></a>
+          <a class="btn line" href="#check" data-i18n="cta.check">Passt es auf mein Grundstück?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="viz"><span class="tag" data-i18n="viz">Visualisierung</span><button type="button" id="film-toggle" data-i18n="video.pause">Video anhalten</button></div>
+</header>
+
+<main>
+  <div class="wrap"><dl class="facts" id="facts"></dl></div>
+
+  <section class="band" id="preis">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="anchor.h2">Was 73 m² sonst kosten</h2><p data-i18n="anchor.p">Ein Einfamilienhaus kostet in Österreich zwischen 2.200 und 4.000 € pro Quadratmeter. Für 73 m² sind das 160.600 bis 292.000 €.</p></div>
+      <div class="two">
+        <div class="stack" style="gap:14px">
+          <div class="bars">
+            <div class="bar-row">
+              <div class="bar-head"><span data-i18n="bar.a">Einfamilienhaus, 73 m²</span><b data-i18n="bar.a.v">160.600 bis 292.000 €</b></div>
+              <div class="track" aria-hidden="true"><i class="solid" style="width:55%"></i><i class="range" style="left:55%;width:45%"></i></div>
+            </div>
+            <div class="bar-row ours">
+              <div class="bar-head"><span data-i18n="bar.b">Ausklapphaus, 73 m²</span><b data-i18n="bar.b.v">ab 19.990 €</b></div>
+              <div class="track" aria-hidden="true"><i class="ours" style="width:6.85%"></i></div>
+            </div>
+          </div>
+          <p class="hint"><span data-i18n="bar.note">Balken maßstäblich.</span> <a href="https://www.infina.at/ratgeber/einfamilienhaus/" target="_blank" rel="noopener" data-i18n="anchor.src">Quelle: Infina, Ratgeber Einfamilienhaus, März 2026</a></p>
+        </div>
+        <div class="aside">
+          <div><h3 data-i18n="fair.h">Was dazukommt</h3><p data-i18n="fair.p">Beim Ausklapphaus kommen Fundament und Anschlüsse dazu, je nach Standort auch eine stärkere Dämmung. Den Gesamtpreis für Ihr Grundstück rechnen wir Ihnen auf WhatsApp vor, bevor Sie etwas entscheiden.</p></div>
+          <div><h3 data-i18n="time.h">Und die Zeit</h3><p data-i18n="time.p">Für ein Massivhaus müssen Sie mindestens ein Jahr Bauzeit einplanen. Das Ausklapphaus ist rund drei Monate nach der Bestellung bei Ihnen.</p>
+            <dl class="rows data" id="time-rows"></dl><p class="hint" data-i18n="time.note">Richtwerte.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="haus">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="product.h2">Das steht dann auf Ihrem Grundstück</h2></div>
+      <div class="clip"><video id="orbit" muted loop playsinline preload="none" poster="media/orbit.jpg" aria-hidden="true"><source src="media/orbit.mp4" type="video/mp4"></video><span class="tag" data-i18n="orbit.cap">Rundflug um das Ausklapphaus 73 m². Visualisierung.</span></div>
+      <div class="two wide-right">
+        <div class="stack">
+          <ul class="gain" id="gain"></ul>
+          <div><a class="btn wa" data-wa="general" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="cta.wa">Auf WhatsApp anfragen</span></a></div>
+        </div>
+        <div class="shots">
+          <figure><img src="media/living.jpg" width="1500" height="996" loading="lazy" alt="" id="img-living"><span class="tag" data-i18n="viz">Visualisierung</span></figure>
+          <figure><img src="media/bedroom.jpg" width="1200" height="797" loading="lazy" alt="" id="img-bed"><span class="tag" data-i18n="viz">Visualisierung</span></figure>
+          <div class="sheet specs"><h3 data-i18n="specs.h">Technische Daten</h3><dl class="rows data" id="specs"></dl><p class="hint" data-i18n="specs.note">Angaben des Herstellers.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="lieferung">
+    <div class="wrap two">
+      <div class="stack">
+        <div class="intro"><h2 data-i18n="unfold.h2">Aus 2,20 m werden 6,22 m</h2><p data-i18n="unfold.p">Das Haus reist so schmal wie ein Container. Auf Ihrem Grundstück klappen beide Seiten aus.</p></div>
+        <ol class="steps" id="steps3"></ol>
+      </div>
+      <div class="sheet unfold"><svg class="iso" id="unfold-svg" aria-hidden="true" focusable="false"></svg>
+        <div class="unfold-cap"><span data-i18n="unfold.width">Breite</span><b id="unfold-w">6,22 m</b></div></div>
+    </div>
+  </section>
+
+  <section class="band" id="check">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="check.h2">Passt es auf Ihr Grundstück?</h2><p data-i18n="check.p">Geben Sie zwei Maße ein. Sie sehen sofort, ob das Haus Platz hat und wo es stehen würde.</p></div>
+      <div class="two wide-right">
+        <div class="stack" style="gap:18px">
+          <div class="pair">
+            <div class="field"><label for="plot-w" data-i18n="f.width">Breite an der Straße</label><div class="num"><input id="plot-w" type="number" inputmode="decimal" min="4" max="300" step="0.5" value="20"><span>m</span></div></div>
+            <div class="field"><label for="plot-d" data-i18n="f.depth">Tiefe</label><div class="num"><input id="plot-d" type="number" inputmode="decimal" min="4" max="300" step="0.5" value="30"><span>m</span></div></div>
+          </div>
+          <div class="field"><label for="setback" data-i18n="f.setback">Abstand zur Grenze</label><div class="num"><input id="setback" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="3"><span>m</span></div><p class="hint" data-i18n="f.setback.note">3 m ist ein üblicher Richtwert. Den genauen Wert nennt Ihre Gemeinde.</p></div>
+          <div class="verdict" id="verdict" aria-live="polite"></div>
+          <div><a class="btn wa" data-wa="check" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="check.cta">Diesen Plan auf WhatsApp besprechen</span></a></div>
+        </div>
+        <div><div class="sheet plan"><div id="plan"></div><dl class="tb" id="tb"></dl></div><p class="hint" style="margin-top:8px" data-i18n="plan.note">Schema ohne Vermessung. Die Straßenseite ist angenommen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band show" id="musterhaus">
+    <div class="wrap two">
+      <figure><img src="media/dusk.jpg" width="1500" height="996" loading="lazy" alt="" id="img-dusk"><span class="tag" data-i18n="viz">Visualisierung</span></figure>
+      <div class="text">
+        <h2 data-i18n="show.h2">Ansehen, bevor Sie entscheiden</h2>
+        <p class="place" data-i18n="show.place">Musterhaus in Vorbereitung: Ried im Innkreis, Oberösterreich</p>
+        <p data-i18n="show.p">Dort prüfen Sie Wände, Fenster und Boden selbst. Lassen Sie sich vormerken, dann erfahren Sie den ersten Besichtigungstermin vor allen anderen.</p>
+        <div><a class="btn wa" data-wa="show" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="show.cta">Für die Besichtigung vormerken</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="fragen">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="faq.h2">Was Käufer vorher wissen wollen</h2></div>
+      <div class="faq" id="faq"></div>
+    </div>
+  </section>
+
+  <section class="band" id="andere">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="alt.h2">Andere Größe gesucht?</h2><p data-i18n="alt.p">Aus demselben Werk kommen drei weitere Häuser. Den Preis nennen wir Ihnen auf WhatsApp.</p></div>
+      <div class="alts" id="alts"></div>
+      <p class="more"><a href="modelle/" data-i18n="alt.all">Alle Modelle mit Haus-Finder ansehen</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="ablauf">
+    <div class="wrap stack">
+      <div class="intro"><h2 data-i18n="proc.h2">In vier Schritten zum Haus</h2></div>
+      <ol class="steps four" id="steps4"></ol>
+    </div>
+  </section>
+
+  <section class="band close" id="anfrage">
+    <div class="wrap">
+      <h2 data-i18n="final.h2">Fragen kostet nichts.</h2>
+      <p data-i18n="final.p">Schicken Sie uns Ort und Grundstücksgröße. Sie bekommen Lieferumfang, Gesamtpreis und Liefertermin und entscheiden dann in Ruhe.</p>
+      <div class="deal">
+        <div class="price"><b><small data-i18n="from">ab</small><span data-price="f73">19.990 €</span></b><span data-i18n="price.note">Preis für das Haus. Fundament, Anschlüsse und Genehmigung kommen dazu.</span></div>
+        <a class="btn wa" data-wa="general" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="cta.wa">Auf WhatsApp anfragen</span></a>
+      </div>
+      <div class="numline"><span data-i18n="final.num">WhatsApp und Telefon:</span><b id="num">+43 699 110 91 334</b><button type="button" class="linkbtn" id="copy" data-i18n="copy">Nummer kopieren</button></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><p data-i18n="foot">Bilder und Videos sind KI-Visualisierungen des Ausklapphauses 73 m². Terrasse, Beleuchtung, Möbel und Garten gehören nicht zum Haus.</p><p class="legal"><a href="impressum/" data-i18n="legal.imprint">Impressum</a><a href="impressum/#datenschutz" data-i18n="legal.privacy">Datenschutz</a><span>© 2026 MAS Solutions Group LLC</span></p></div></footer>
+
+<div class="bar"><b><small data-i18n="from">ab</small><span data-price="f73">19.990 €</span></b><a class="btn wa small" data-wa="general" href="https://wa.me/4369911091334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.3A10 10 0 1 0 12 2Zm0 1.9a8.1 8.1 0 1 1-4.13 15.07l-.32-.19-2.86.72.76-2.76-.21-.33A8.1 8.1 0 0 1 12 3.9Z"/><path fill="currentColor" d="M9.1 7.3c-.2-.45-.4-.46-.6-.47h-.5c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26 0 1.34.97 2.63 1.1 2.81.14.18 1.88 3 4.64 4.09 2.3.9 2.76.72 3.26.68.5-.05 1.6-.66 1.83-1.29.23-.63.23-1.170.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.060-.16.18-.32.2-.59.07-.27-.14-1.150-.42-2.180-1.350-.81-.72-1.350-1.610-1.510-1.880-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.490-.84-2.030Z"/></svg><span data-i18n="cta.wa">Auf WhatsApp anfragen</span></a></div>
+
+<script src="assets/config.js"></script>
+<script>
+(function(){
+"use strict";
+// Preise und WhatsApp-Nummer stehen in assets/config.js
+const CFG=window.PARCELA||{whatsapp:"4369911091334",phoneDisplay:"+43 699 110 91 334",prices:{f73:19990}};
+const WA=CFG.whatsapp;
+const T={
+de:{
+ h1:"Ein Haus zum Preis eines Kleinwagens.",
+ sub:"73 m², drei Schlafzimmer. Kommt zusammengeklappt per LKW und wird auf Ihrem Grundstück aufgeklappt.",
+ from:"ab","price.note":"Preis für das Haus. Fundament, Anschlüsse und Genehmigung kommen dazu.",
+ "cta.wa":"Auf WhatsApp anfragen","cta.check":"Passt es auf mein Grundstück?",
+ viz:"Visualisierung","video.pause":"Video anhalten","video.play":"Video abspielen",
+ facts:[["Wohnfläche","73 m²"],["Schlafzimmer","3"],["Außenmaß","11,8 × 6,2 m"],["Fertigung laut Werk","10–15 Tage"]],
+ "anchor.h2":"Was 73 m² sonst kosten",
+ "anchor.p":"Ein Einfamilienhaus kostet in Österreich zwischen 2.200 und 4.000 € pro Quadratmeter. Für 73 m² sind das 160.600 bis 292.000 €.",
+ "anchor.src":"Quelle: Infina, Ratgeber Einfamilienhaus, März 2026",
+ "bar.a":"Einfamilienhaus, 73 m²","bar.a.v":"160.600 bis 292.000 €","bar.b":"Ausklapphaus, 73 m²","bar.b.v":"ab {P}","bar.note":"Balken maßstäblich.",
+ "fair.h":"Was dazukommt","fair.p":"Beim Ausklapphaus kommen Fundament und Anschlüsse dazu, je nach Standort auch eine stärkere Dämmung. Den Gesamtpreis für Ihr Grundstück rechnen wir Ihnen auf WhatsApp vor, bevor Sie etwas entscheiden.",
+ "time.h":"Und die Zeit","time.p":"Für ein Massivhaus müssen Sie mindestens ein Jahr Bauzeit einplanen. Das Ausklapphaus ist rund drei Monate nach der Bestellung bei Ihnen.",
+ time:[["Fertigung","10–15 Tage, laut Werk"],["Seefracht","5–8 Wochen"],["Zoll und Lieferung","1–2 Wochen"]],"time.note":"Richtwerte.",
+ "product.h2":"Das steht dann auf Ihrem Grundstück","orbit.cap":"Rundflug um das Ausklapphaus 73 m². Visualisierung.",
+ gain:[["Platz für eine Familie","Drei Schlafzimmer und eine Wohnküche auf 73 m²."],["Innen fertig","Wände, Boden und Elektrik kommen fertig aus dem Werk. Bad und Küche baut das Werk auf Wunsch ein."],["Stahl und Steinwolle","Verzinkter Stahlrahmen, Wände aus nicht brennbaren Steinwollpaneelen (Klasse A1)."],["Für Ihr Klima","Wandstärke 75 oder 100 mm gegen Aufpreis, passend zum Standort."]],
+ "specs.h":"Technische Daten","specs.note":"Angaben des Herstellers.",
+ specs:[["Außenmaß","11,80 × 6,22 × 2,48 m"],["Innenmaß","11,22 × 6,06 × 2,20 m"],["Transportbreite","2,20 m"],["Gewicht","4 bis 5,5 t"],["Anschlussleistung","bis 12 kW"]],
+ "alt.living":"Wohnküche mit Esstisch und Sofa, Visualisierung","alt.bed":"Schlafzimmer mit Doppelbett, Visualisierung","alt.dusk":"Das Ausklapphaus am Abend mit beleuchteter Terrasse, Visualisierung",
+ "unfold.h2":"Aus 2,20 m werden 6,22 m","unfold.p":"Das Haus reist so schmal wie ein Container. Auf Ihrem Grundstück klappen beide Seiten aus.","unfold.width":"Breite",
+ steps3:[["Per LKW","Das Haus kommt zusammengeklappt, 2,20 m breit und 11,80 m lang."],["Kran setzt ab","Ein Autokran hebt es auf das vorbereitete Fundament."],["Aufklappen","Beide Seitenflügel klappen aus, danach wird das Haus angeschlossen."]],
+ "check.h2":"Passt es auf Ihr Grundstück?","check.p":"Geben Sie zwei Maße ein. Sie sehen sofort, ob das Haus Platz hat und wo es stehen würde.",
+ "f.width":"Breite an der Straße","f.depth":"Tiefe","f.setback":"Abstand zur Grenze","f.setback.note":"3 m ist ein üblicher Richtwert. Den genauen Wert nennt Ihre Gemeinde.",
+ "check.cta":"Diesen Plan auf WhatsApp besprechen",
+ "v.yes":"Ja, das Ausklapphaus mit 73 m² passt.","v.yes.p":"Es steht {a} m von der seitlichen Grenze entfernt und bedeckt {p} % des Grundstücks.",
+ "v.small":"Die Variante mit 73 m² passt hier nicht, die kleinere mit 38 m² schon.","v.small.p":"Sie misst 5,9 × 6,4 m. Den Preis dafür nennen wir Ihnen auf WhatsApp.",
+ "v.no":"Auf diesem Baufeld hat keine der beiden Größen Platz.","v.no.p":"Nach Abzug der Abstände bleiben {w} × {d} m. Schicken Sie uns den Plan, wir sehen ihn gemeinsam an.",
+ "v.neg":"Bei {s} m Abstand bleibt kein Baufeld übrig.","v.neg.p":"Verringern Sie den Abstand, wenn Ihre Gemeinde das erlaubt.",
+ "vs.yes":"73 m² passt","vs.small":"nur 38 m² passt","vs.no":"passt nicht",
+ "plan.street":"Straße","plan.limit":"Baugrenze","plan.note":"Schema ohne Vermessung. Die Straßenseite ist angenommen.","plan.plot":"Grundstück","plan.field":"Baufeld","plan.built":"Bebaut","plan.none":"keines","plan.aria":"Lageplan des Grundstücks mit dem Ausklapphaus",
+ "show.h2":"Ansehen, bevor Sie entscheiden","show.place":"Musterhaus in Vorbereitung: Ried im Innkreis, Oberösterreich",
+ "show.p":"Dort prüfen Sie Wände, Fenster und Boden selbst. Lassen Sie sich vormerken, dann erfahren Sie den ersten Besichtigungstermin vor allen anderen.","show.cta":"Für die Besichtigung vormerken",
+ "faq.h2":"Was Käufer vorher wissen wollen",
+ faq:[["Was ist im Preis enthalten?","Das Haus selbst in Grundausstattung. Nicht enthalten sind Fundament, Anschlüsse für Strom, Wasser und Kanal sowie die Baugenehmigung. Lieferumfang und Gesamtpreis für Ihren Standort bekommen Sie schriftlich, bevor Sie etwas zusagen."],
+  ["Brauche ich eine Baugenehmigung?","In den meisten Fällen ja. Wichtig dabei: Die Innenhöhe beträgt 2,20 m. Je nach Bundesland und Art des Gebäudes gelten Mindesthöhen zwischen 2,20 und 2,50 m. Klären Sie vor der Bestellung mit Ihrem Bauamt, ob das Haus bei Ihnen als Wohnhaus bewilligt wird. Pläne und technische Daten dafür bekommen Sie von uns."],
+  ["Kann man das ganze Jahr darin wohnen?","Mit der passenden Ausführung ja. Für ganzjähriges Wohnen brauchen Sie die stärkere Wand mit 100 mm und gute Fenster. Ob das an Ihrem Standort für den Energieausweis reicht, klären wir vor dem Angebot."],
+  ["Wie gut ist die Qualität?","Das Werk baut seit 2012 Modulhäuser und ist nach ISO 9001, 14001 und 45001 zertifiziert (Angaben des Herstellers). Verlassen Sie sich trotzdem nicht auf Papier: Im Musterhaus in Ried im Innkreis können Sie alles selbst anfassen."],
+  ["Wie lange dauert es?","Rund drei Monate von der Bestellung bis zur Lieferung: 10 bis 15 Tage Fertigung, fünf bis acht Wochen Seefracht, ein bis zwei Wochen Zoll und Lieferung. Das Aufklappen ist meist an einem Tag erledigt, danach wird angeschlossen."],
+  ["Verpflichtet mich die Anfrage zu etwas?","Nein. Die Nachricht auf WhatsApp und das Angebot kosten nichts und verpflichten Sie zu nichts."]],
+ "alt.h2":"Andere Größe gesucht?","alt.p":"Aus demselben Werk kommen drei weitere Häuser. Den Preis nennen wir Ihnen auf WhatsApp.","alt.cta":"Preis anfragen","alt.all":"Alle Modelle mit Haus-Finder ansehen",
+ alts:[["Ausklapphaus 38 m²","Dasselbe Prinzip, halbe Länge. Für kleine Grundstücke, als Wochenendhaus oder für die Eltern im Garten.","5,9 × 6,4 m"],["Modulhaus 85 m²","Sechs Module, vor Ort verschraubt. Mehr Platz, und der Grundriss lässt sich anpassen.","11,8 × 7,2 m"],["Kapselhaus 38 m²","Fertig eingerichtet, mit Glasfront und Bad. Für das Wochenendgrundstück oder zur Vermietung.","11,5 × 3,3 m"]],
+ "wa.alt0":"Hallo, ich interessiere mich für das Ausklapphaus 38 m². Was kostet es? Mein Grundstück liegt in: ","wa.alt1":"Hallo, ich interessiere mich für das Modulhaus 85 m². Was kostet es? Mein Grundstück liegt in: ","wa.alt2":"Hallo, ich interessiere mich für das Kapselhaus 38 m². Was kostet es? Mein Grundstück liegt in: ",
+ "proc.h2":"In vier Schritten zum Haus",
+ steps4:[["Schreiben Sie uns","Ort und Grundstücksgröße genügen für den Anfang."],["Angebot","Sie bekommen Lieferumfang, Gesamtpreis und Liefertermin schriftlich."],["Fertigung und Transport","Rund drei Monate von der Bestellung bis zur Lieferung."],["Aufstellen","LKW, Kran, aufklappen, anschließen."]],
+ "final.h2":"Fragen kostet nichts.","final.p":"Schicken Sie uns Ort und Grundstücksgröße. Sie bekommen Lieferumfang, Gesamtpreis und Liefertermin und entscheiden dann in Ruhe.",
+ "final.num":"WhatsApp und Telefon:",copy:"Nummer kopieren",copied:"Kopiert",
+ foot:"Bilder und Videos sind KI-Visualisierungen des Ausklapphauses 73 m². Terrasse, Beleuchtung, Möbel und Garten gehören nicht zum Haus.","legal.imprint":"Impressum","legal.privacy":"Datenschutz",
+ "wa.general":"Hallo, ich interessiere mich für das Ausklapphaus 73 m² (ab {P}). Mein Grundstück liegt in: ",
+ "wa.check":"Hallo, ich interessiere mich für das Ausklapphaus 73 m². Mein Grundstück: {W} × {D} m, Abstand zur Grenze {s} m. Ergebnis im Grundstücks-Check: {v}. Ort: ",
+ "wa.show":"Hallo, ich möchte das Musterhaus in Ried im Innkreis besichtigen. Bitte merken Sie mich vor."
+},
+bs:{
+ h1:"Kuća po cijeni malog auta.",
+ sub:"73 m², tri spavaće sobe. Stiže sklopljena kamionom i rasklapa se na Vašoj parceli.",
+ from:"od","price.note":"Cijena za kuću. Temelj, priključci i dozvola nisu uključeni.",
+ "cta.wa":"Pišite nam na WhatsApp","cta.check":"Stane li na moju parcelu?",
+ viz:"Vizualizacija","video.pause":"Zaustavi video","video.play":"Pokreni video",
+ facts:[["Stambena površina","73 m²"],["Spavaće sobe","3"],["Vanjske dimenzije","11,8 × 6,2 m"],["Proizvodnja prema tvornici","10–15 dana"]],
+ "anchor.h2":"Koliko inače košta 73 m²",
+ "anchor.p":"Porodična kuća u Austriji košta između 2.200 i 4.000 € po kvadratnom metru. Za 73 m² to je 160.600 do 292.000 €.",
+ "anchor.src":"Izvor: Infina, vodič za porodične kuće, mart 2026.",
+ "bar.a":"Porodična kuća, 73 m²","bar.a.v":"160.600 do 292.000 €","bar.b":"Rasklopiva kuća, 73 m²","bar.b.v":"od {P}","bar.note":"Trake su u razmjeri.",
+ "fair.h":"Šta se dodaje","fair.p":"Uz rasklopivu kuću dolaze još temelj i priključci, a zavisno od lokacije i deblja izolacija. Ukupnu cijenu za Vašu parcelu izračunamo Vam na WhatsAppu prije nego što bilo šta odlučite.",
+ "time.h":"A vrijeme","time.p":"Za zidanu kuću treba računati s najmanje godinu dana gradnje. Rasklopiva kuća je kod Vas otprilike tri mjeseca nakon narudžbe.",
+ time:[["Proizvodnja","10–15 dana, prema tvornici"],["Pomorski prevoz","5–8 sedmica"],["Carina i dostava","1–2 sedmice"]],"time.note":"Okvirne vrijednosti.",
+ "product.h2":"Ovo zatim stoji na Vašoj parceli","orbit.cap":"Let oko rasklopive kuće od 73 m². Vizualizacija.",
+ gain:[["Mjesta za porodicu","Tri spavaće sobe i dnevni boravak s kuhinjom na 73 m²."],["Iznutra završena","Zidovi, pod i elektrika stižu gotovi iz tvornice. Kupatilo i kuhinju tvornica ugrađuje po želji."],["Čelik i kamena vuna","Pocinčani čelični okvir, zidovi od negorivih panela s kamenom vunom (klasa A1)."],["Za Vašu klimu","Debljina zida 75 ili 100 mm uz doplatu, prema lokaciji."]],
+ "specs.h":"Tehnički podaci","specs.note":"Podaci proizvođača.",
+ specs:[["Vanjske dimenzije","11,80 × 6,22 × 2,48 m"],["Unutrašnje dimenzije","11,22 × 6,06 × 2,20 m"],["Širina u transportu","2,20 m"],["Težina","4 do 5,5 t"],["Priključna snaga","do 12 kW"]],
+ "alt.living":"Dnevni boravak s kuhinjom, stolom i sofom, vizualizacija","alt.bed":"Spavaća soba s bračnim krevetom, vizualizacija","alt.dusk":"Rasklopiva kuća navečer s osvijetljenom terasom, vizualizacija",
+ "unfold.h2":"Od 2,20 m nastaje 6,22 m","unfold.p":"Kuća putuje uska kao kontejner. Na Vašoj parceli rasklapaju se obje strane.","unfold.width":"Širina",
+ steps3:[["Kamionom","Kuća stiže sklopljena, široka 2,20 m i duga 11,80 m."],["Kran je spušta","Autokran je postavlja na pripremljen temelj."],["Rasklapanje","Oba bočna krila se rasklapaju, zatim se kuća priključuje."]],
+ "check.h2":"Stane li na Vašu parcelu?","check.p":"Unesite dvije mjere. Odmah vidite ima li kuća mjesta i gdje bi stajala.",
+ "f.width":"Širina uz ulicu","f.depth":"Dubina","f.setback":"Udaljenost od međe","f.setback.note":"3 m je uobičajena vrijednost. Tačnu vrijednost daje Vaša općina.",
+ "check.cta":"Pošaljite ovaj plan na WhatsApp",
+ "v.yes":"Da, rasklopiva kuća od 73 m² stane.","v.yes.p":"Stoji {a} m od bočne međe i zauzima {p} % parcele.",
+ "v.small":"Varijanta od 73 m² ovdje ne stane, manja od 38 m² stane.","v.small.p":"Njene dimenzije su 5,9 × 6,4 m. Cijenu Vam javljamo na WhatsAppu.",
+ "v.no":"U ovoj zoni gradnje nema mjesta ni za jednu od dvije veličine.","v.no.p":"Kad se odbiju udaljenosti, ostaje {w} × {d} m. Pošaljite nam plan, pogledat ćemo ga zajedno.",
+ "v.neg":"Uz udaljenost od {s} m ne ostaje prostor za gradnju.","v.neg.p":"Smanjite udaljenost ako to Vaša općina dozvoljava.",
+ "vs.yes":"73 m² stane","vs.small":"stane samo 38 m²","vs.no":"ne stane",
+ "plan.street":"Ulica","plan.limit":"Granica gradnje","plan.note":"Shema bez geodetskog snimka. Strana prema ulici je pretpostavljena.","plan.plot":"Parcela","plan.field":"Zona gradnje","plan.built":"Izgrađeno","plan.none":"nema","plan.aria":"Situacioni plan parcele s rasklopivom kućom",
+ "show.h2":"Pogledajte prije odluke","show.place":"Ogledna kuća u pripremi: Ried im Innkreis, Gornja Austrija",
+ "show.p":"Tamo sami provjerite zidove, prozore i pod. Prijavite se, pa ćete prvi termin razgledanja saznati prije svih ostalih.","show.cta":"Prijavite se za razgledanje",
+ "faq.h2":"Šta kupci žele znati unaprijed",
+ faq:[["Šta je uključeno u cijenu?","Sama kuća u osnovnoj opremi. Nisu uključeni temelj, priključci za struju, vodu i kanalizaciju ni građevinska dozvola. Obim isporuke i ukupnu cijenu za Vašu lokaciju dobijate pismeno prije nego što bilo šta potvrdite."],
+  ["Treba li mi građevinska dozvola?","U većini slučajeva da. Važno je znati: unutrašnja visina je 2,20 m. Zavisno od države, pokrajine i vrste objekta, najmanja propisana visina je između 2,20 i 2,50 m. Prije narudžbe provjerite u svojoj općini može li se kuća kod Vas odobriti kao stambena. Nacrte i tehničke podatke za to dobijate od nas."],
+  ["Može li se u njoj živjeti cijele godine?","Uz odgovarajuću izvedbu da. Za život tokom cijele godine trebate deblji zid od 100 mm i dobre prozore. Da li je to na Vašoj lokaciji dovoljno za energetski certifikat, razjasnimo prije ponude."],
+  ["Kakav je kvalitet?","Tvornica od 2012. proizvodi modularne kuće i certificirana je prema ISO 9001, 14001 i 45001 (podaci proizvođača). Ipak se ne oslanjajte na papir: u oglednoj kući u Ried im Innkreisu sve možete sami opipati."],
+  ["Koliko traje?","Otprilike tri mjeseca od narudžbe do dostave: 10 do 15 dana proizvodnje, pet do osam sedmica pomorskog prevoza, jedna do dvije sedmice carine i dostave. Rasklapanje je najčešće gotovo za jedan dan, zatim slijedi priključenje."],
+  ["Obavezuje li me upit na nešto?","Ne. Poruka na WhatsAppu i ponuda su besplatne i ne obavezuju Vas ni na šta."]],
+ "alt.h2":"Tražite drugu veličinu?","alt.p":"Iz iste tvornice dolaze još tri kuće. Cijenu Vam javljamo na WhatsAppu.","alt.cta":"Zatražite cijenu","alt.all":"Pogledajte sve modele i pronađite kuću za svoju parcelu",
+ alts:[["Rasklopiva kuća 38 m²","Isti princip, upola kraća. Za male parcele, kao vikendica ili za roditelje u dvorištu.","5,9 × 6,4 m"],["Modularna kuća 85 m²","Šest modula koji se spajaju na licu mjesta. Više prostora, a tlocrt se može prilagoditi.","11,8 × 7,2 m"],["Kuća kapsula 38 m²","Potpuno opremljena, sa staklenom fasadom i kupatilom. Za vikend-parcelu ili za iznajmljivanje.","11,5 × 3,3 m"]],
+ "wa.alt0":"Dobar dan, zanima me rasklopiva kuća od 38 m². Koliko košta? Moja parcela se nalazi u: ","wa.alt1":"Dobar dan, zanima me modularna kuća od 85 m². Koliko košta? Moja parcela se nalazi u: ","wa.alt2":"Dobar dan, zanima me kuća kapsula od 38 m². Koliko košta? Moja parcela se nalazi u: ",
+ "proc.h2":"Do kuće u četiri koraka",
+ steps4:[["Pišite nam","Za početak su dovoljni mjesto i veličina parcele."],["Ponuda","Obim isporuke, ukupnu cijenu i rok dostave dobijate pismeno."],["Proizvodnja i transport","Otprilike tri mjeseca od narudžbe do dostave."],["Postavljanje","Kamion, kran, rasklapanje, priključenje."]],
+ "final.h2":"Pitati ne košta ništa.","final.p":"Pošaljite nam mjesto i veličinu parcele. Dobijate obim isporuke, ukupnu cijenu i rok dostave, a zatim odlučujete na miru.",
+ "final.num":"WhatsApp i telefon:",copy:"Kopirajte broj",copied:"Kopirano",
+ foot:"Slike i video snimci su AI vizualizacije rasklopive kuće od 73 m². Terasa, rasvjeta, namještaj i vrt nisu dio kuće.","legal.imprint":"Impresum","legal.privacy":"Zaštita podataka",
+ "wa.general":"Dobar dan, zanima me rasklopiva kuća od 73 m² (od {P}). Moja parcela se nalazi u: ",
+ "wa.check":"Dobar dan, zanima me rasklopiva kuća od 73 m². Moja parcela: {W} × {D} m, udaljenost od međe {s} m. Rezultat provjere na stranici: {v}. Mjesto: ",
+ "wa.show":"Dobar dan, želim razgledati oglednu kuću u Ried im Innkreisu. Molim Vas da me zabilježite."
+},
+en:{
+ h1:"A house for the price of a small car.",
+ sub:"73 m², three bedrooms. It arrives folded on a truck and unfolds on your plot.",
+ from:"from","price.note":"Price for the house. Foundation, utility connections and permit are extra.",
+ "cta.wa":"Ask on WhatsApp","cta.check":"Does it fit my plot?",
+ viz:"Visualisation","video.pause":"Pause video","video.play":"Play video",
+ facts:[["Floor area","73 m²"],["Bedrooms","3"],["Outer size","11.8 × 6.2 m"],["Production, per factory","10–15 days"]],
+ "anchor.h2":"What 73 m² usually cost",
+ "anchor.p":"A single-family house in Austria costs between €2,200 and €4,000 per square metre. For 73 m² that is €160,600 to €292,000.",
+ "anchor.src":"Source: Infina, guide to single-family houses, March 2026",
+ "bar.a":"Single-family house, 73 m²","bar.a.v":"€160,600 to €292,000","bar.b":"Expandable house, 73 m²","bar.b.v":"from {P}","bar.note":"Bars drawn to scale.",
+ "fair.h":"What comes on top","fair.p":"The expandable house also needs a foundation and utility connections and, depending on the location, thicker insulation. We work out the total for your plot on WhatsApp before you decide anything.",
+ "time.h":"And the time","time.p":"A masonry house takes at least a year to build. The expandable house reaches you about three months after you order.",
+ time:[["Production","10–15 days, per factory"],["Sea freight","5–8 weeks"],["Customs and delivery","1–2 weeks"]],"time.note":"Guide values.",
+ "product.h2":"This is what stands on your plot","orbit.cap":"Flight around the 73 m² expandable house. Visualisation.",
+ gain:[["Room for a family","Three bedrooms and an open kitchen and living room on 73 m²."],["Finished inside","Walls, floor and wiring arrive finished from the factory. Bathroom and kitchen are fitted on request."],["Steel and rock wool","Galvanised steel frame, walls of non-combustible rock wool panels (class A1)."],["Built for your climate","Wall thickness of 75 or 100 mm at extra cost, to suit the location."]],
+ "specs.h":"Technical data","specs.note":"Figures as stated by the manufacturer.",
+ specs:[["Outer size","11.80 × 6.22 × 2.48 m"],["Inner size","11.22 × 6.06 × 2.20 m"],["Transport width","2.20 m"],["Weight","4 to 5.5 t"],["Power connection","up to 12 kW"]],
+ "alt.living":"Open kitchen and living room with dining table and sofa, visualisation","alt.bed":"Bedroom with double bed, visualisation","alt.dusk":"The expandable house at dusk with a lit deck, visualisation",
+ "unfold.h2":"From 2.20 m to 6.22 m","unfold.p":"The house travels as narrow as a shipping container. On your plot both sides fold out.","unfold.width":"Width",
+ steps3:[["By truck","The house arrives folded, 2.20 m wide and 11.80 m long."],["Crane sets it down","A mobile crane lifts it onto the prepared foundation."],["Unfolding","Both side wings fold out, then the house is connected."]],
+ "check.h2":"Does it fit your plot?","check.p":"Enter two measurements. You see at once whether the house has room and where it would stand.",
+ "f.width":"Width along the street","f.depth":"Depth","f.setback":"Distance to the boundary","f.setback.note":"3 m is a common rule of thumb. Your municipality gives the exact value.",
+ "check.cta":"Discuss this plan on WhatsApp",
+ "v.yes":"Yes, the 73 m² expandable house fits.","v.yes.p":"It stands {a} m from the side boundary and covers {p} % of the plot.",
+ "v.small":"The 73 m² version does not fit here, the smaller 38 m² one does.","v.small.p":"It measures 5.9 × 6.4 m. We give you its price on WhatsApp.",
+ "v.no":"Neither size has room in this buildable area.","v.no.p":"After the boundary distances, {w} × {d} m remain. Send us the plan and we look at it together.",
+ "v.neg":"With a distance of {s} m no buildable area remains.","v.neg.p":"Reduce the distance if your municipality allows it.",
+ "vs.yes":"73 m² fits","vs.small":"only 38 m² fits","vs.no":"does not fit",
+ "plan.street":"Street","plan.limit":"Building limit","plan.note":"Schematic, not a survey. The street side is assumed.","plan.plot":"Plot","plan.field":"Buildable area","plan.built":"Built on","plan.none":"none","plan.aria":"Site plan of the plot with the expandable house",
+ "show.h2":"See it before you decide","show.place":"Show house in preparation: Ried im Innkreis, Upper Austria",
+ "show.p":"There you check walls, windows and floor yourself. Put your name down and you hear about the first viewing date before anyone else.","show.cta":"Put me down for a viewing",
+ "faq.h2":"What buyers want to know first",
+ faq:[["What is included in the price?","The house itself with standard fittings. Not included are the foundation, connections for power, water and sewage, and the building permit. You receive the scope of delivery and the total price for your location in writing before you commit to anything."],
+  ["Do I need a building permit?","In most cases, yes. One thing to know: the interior height is 2.20 m. Depending on the region and the type of building, minimum heights between 2.20 and 2.50 m apply. Before ordering, check with your building authority whether the house can be approved as a home where you live. We supply the drawings and technical data."],
+  ["Can you live in it all year?","With the right build, yes. For year-round living you need the thicker 100 mm wall and good windows. Whether that is enough for the energy certificate at your location is settled before the quote."],
+  ["How good is the quality?","The factory has built modular houses since 2012 and is certified to ISO 9001, 14001 and 45001 (as stated by the manufacturer). Still, do not rely on paper: in the show house in Ried im Innkreis you can touch everything yourself."],
+  ["How long does it take?","About three months from order to delivery: 10 to 15 days of production, five to eight weeks of sea freight, one to two weeks of customs and delivery. Unfolding is usually done in a day, then the house is connected."],
+  ["Does asking commit me to anything?","No. The WhatsApp message and the quote cost nothing and commit you to nothing."]],
+ "alt.h2":"Looking for a different size?","alt.p":"Three more houses come from the same factory. We give you the price on WhatsApp.","alt.cta":"Ask for the price","alt.all":"See all models with the house finder",
+ alts:[["Expandable house 38 m²","The same principle at half the length. For small plots, as a weekend house or for parents in the garden.","5.9 × 6.4 m"],["Modular house 85 m²","Six modules bolted together on site. More room, and the floor plan can be adapted.","11.8 × 7.2 m"],["Capsule house 38 m²","Fully fitted, with a glass front and bathroom. For a weekend plot or to rent out.","11.5 × 3.3 m"]],
+ "wa.alt0":"Hello, I am interested in the 38 m² expandable house. What does it cost? My plot is in: ","wa.alt1":"Hello, I am interested in the 85 m² modular house. What does it cost? My plot is in: ","wa.alt2":"Hello, I am interested in the 38 m² capsule house. What does it cost? My plot is in: ",
+ "proc.h2":"Four steps to the house",
+ steps4:[["Write to us","Town and plot size are enough to start."],["Quote","You receive scope of delivery, total price and delivery date in writing."],["Production and transport","About three months from order to delivery."],["Setting up","Truck, crane, unfold, connect."]],
+ "final.h2":"Asking costs nothing.","final.p":"Send us your town and plot size. You get the scope of delivery, the total price and the delivery date, and then decide in your own time.",
+ "final.num":"WhatsApp and phone:",copy:"Copy number",copied:"Copied",
+ foot:"Images and videos are AI visualisations of the 73 m² expandable house. Deck, lighting, furniture and garden are not part of the house.","legal.imprint":"Legal notice","legal.privacy":"Privacy",
+ "wa.general":"Hello, I am interested in the 73 m² expandable house (from {P}). My plot is in: ",
+ "wa.check":"Hello, I am interested in the 73 m² expandable house. My plot: {W} × {D} m, distance to the boundary {s} m. Result of the plot check: {v}. Town: ",
+ "wa.show":"Hello, I would like to view the show house in Ried im Innkreis. Please put me down."
+}};
+
+const S={lang:"de",W:20,D:30,s:3};
+try{const l=localStorage.getItem("parcela-lang");if(l&&T[l])S.lang=l;}catch(e){}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function money(n){const t=String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,S.lang==="en"?",":".");return S.lang==="en"?"€"+t:t+" €";}
+const fill=s=>s.split("{P}").join(money(CFG.prices.f73));
+const tr=(k,v)=>{let s=T[S.lang][k];if(s===undefined)return k;s=fill(s);if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s;};
+function nf(v,d){if(d===undefined)d=Math.abs(v-Math.round(v))<.05?0:1;const t=v.toFixed(d);return S.lang==="en"?t:t.replace(".",",");}
+
+/* ---------- isometric unfolding figure ---------- */
+const K=Math.cos(Math.PI/6);
+const pr=(x,y,z)=>[(x-y)*K,(x+y)*.5-z];
+function box(x0,x1,y0,y1,z0,z1){
+  return {depth:(x0+x1)/2+(y0+y1)/2+(z0+z1)/2,polys:[
+    {c:"i-side",p:[pr(x0,y1,z0),pr(x1,y1,z0),pr(x1,y1,z1),pr(x0,y1,z1)]},
+    {c:"i-top",p:[pr(x0,y0,z1),pr(x1,y0,z1),pr(x1,y1,z1),pr(x0,y1,z1)]},
+    {c:"i-front",p:[pr(x1,y0,z0),pr(x1,y1,z0),pr(x1,y1,z1),pr(x1,y0,z1)]}]};
+}
+const onX=(x,y0,y1,z0,z1,c)=>({c,p:[pr(x,y0,z0),pr(x,y1,z0),pr(x,y1,z1),pr(x,y0,z1)]});
+const onY=(y,x0,x1,z0,z1,c)=>({c,p:[pr(x0,y,z0),pr(x1,y,z0),pr(x1,y,z1),pr(x0,y,z1)]});
+const L=11.8,CORE=2.2,WING=2.01;
+function wingPolys(t,len){
+  const L=len||11.8,sh=[],a=WING*t,y0=WING,y1=WING+CORE;
+  sh.push({depth:-1e9,polys:[{c:"i-ground",p:[pr(-1.2,-1.2,0),pr(L+1.2,-1.2,0),pr(L+1.2,2*WING+CORE+1.2,0),pr(-1.2,2*WING+CORE+1.2,0)]}]});
+  if(t>.02)sh.push(box(0,L,y0-a,y0,0,2.3));
+  const c=box(0,L,y0,y1,0,2.48);c.polys.push(onX(L,y0+.65,y0+1.55,0,2.1,"i-door"));sh.push(c);
+  if(t>.02){
+    const b=box(0,L,y1,y1+a,0,2.3);
+    if(t>.985){for(let x=1;x+1.5<L;x+=2.7)b.polys.push(onY(y1+a,x,x+1.5,1,2,"i-glass"));b.polys.push(onX(L,y1+.5,y1+1.6,1,2,"i-glass"));}
+    sh.push(b);
+  }
+  sh.sort((p,q)=>p.depth-q.depth);
+  const out=[];for(const s of sh)for(const q of s.polys)out.push(q);return out;
+}
+function ext(profile,x0,x1){ // extrude a (y,z) outline along x, keep the faces the viewer sees
+  const polys=[],n=profile.length;let sy=0,sz=0;
+  for(let i=0;i<n;i++){
+    const a=profile[i],b=profile[(i+1)%n];sy+=a[0];sz+=a[1];
+    const ny=b[1]-a[1],nz=-(b[0]-a[0]);if(ny+nz<=1e-9)continue;
+    const up=nz/Math.hypot(ny,nz);
+    polys.push({c:up>.95?"i-top":up>.15?"i-roof":"i-side",p:[pr(x0,a[0],a[1]),pr(x1,a[0],a[1]),pr(x1,b[0],b[1]),pr(x0,b[0],b[1])]});
+  }
+  polys.push({c:"i-front",p:profile.map(q=>pr(x1,q[0],q[1]))});
+  return {depth:(x0+x1)/2+sy/n+sz/n,polys};
+}
+function flat(sh,Lx,Wy){
+  const m=Math.max(Lx,Wy)*.09+.6;
+  sh.push({depth:-1e9,polys:[{c:"i-ground",p:[pr(-m,-m,0),pr(Lx+m,-m,0),pr(Lx+m,Wy+m,0),pr(-m,Wy+m,0)]}]});
+  sh.sort((p,q)=>p.depth-q.depth);
+  const out=[];for(const s of sh)for(const q of s.polys)out.push(q);return out;
+}
+function svgOf(polys){
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,o="";
+  for(const q of polys)o+='<polygon class="'+q.c+'" points="'+q.p.map(p=>{x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);y0=Math.min(y0,p[1]);y1=Math.max(y1,p[1]);return p[0].toFixed(2)+","+p[1].toFixed(2);}).join(" ")+'"/>';
+  return '<svg class="iso" viewBox="'+[x0-.4,y0-.4,x1-x0+.8,y1-y0+.8].map(v=>v.toFixed(2)).join(" ")+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">'+o+"</svg>";
+}
+const ART=[
+  svgOf(wingPolys(1,5.9)),
+  (function(){ // six modules of 5.9 x 2.4 m
+    const sh=[],l=5.9,w=2.4,h=2.9;
+    for(let i=0;i<2;i++)for(let j=0;j<3;j++){
+      const b=box(i*l,(i+1)*l,j*w,(j+1)*w,0,h);
+      if(j===2)b.polys.push(onY(3*w,i*l+.9,i*l+2.4,1,2.2,"i-glass"),onY(3*w,i*l+3.5,i*l+5,1,2.2,"i-glass"));
+      if(i===1)b.polys.push(j===0?onX(2*l,j*w+.7,j*w+1.65,0,2.1,"i-door"):onX(2*l,j*w+.55,j*w+1.85,1,2.2,"i-glass"));
+      sh.push(b);
+    }
+    return svgOf(flat(sh,11.8,7.2));
+  })(),
+  (function(){ // capsule 11.5 x 3.3 x 3.2 m with chamfered section
+    const c=ext([[.6,0],[2.7,0],[3.3,.6],[3.3,2.6],[2.7,3.2],[.6,3.2],[0,2.6],[0,.6]],0,11.5);
+    c.polys.push({c:"i-glass",p:[[.75,.3],[2.55,.3],[3,.75],[3,2.45],[2.55,2.9],[.75,2.9],[.3,2.45],[.3,.75]].map(q=>pr(11.5,q[0],q[1]))},onY(3.3,1.4,7.6,1,2.3,"i-glass"));
+    return svgOf(flat([c],11.5,3.3));
+  })()
+];
+const WAI=document.querySelector(".btn.wa svg").outerHTML;
+const wingScene=t=>wingPolys(t).map(q=>'<polygon class="'+q.c+'" points="'+q.p.map(p=>p[0].toFixed(2)+","+p[1].toFixed(2)).join(" ")+'"/>').join("");
+(function(){ // fixed viewBox from the fully opened house, so the frame does not jump
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+  for(const q of wingPolys(1))for(const p of q.p){x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);y0=Math.min(y0,p[1]);y1=Math.max(y1,p[1]);}
+  $("#unfold-svg").setAttribute("viewBox",[x0-.4,y0-.4,x1-x0+.8,y1-y0+.8].map(v=>v.toFixed(2)).join(" "));
+})();
+function drawUnfold(t){$("#unfold-svg").innerHTML=wingScene(t);$("#unfold-w").textContent=nf(CORE+2*WING*t,2)+" m";}
+const calm=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+let uRun=false,uT0=null;
+function uFrame(ts){
+  if(!uRun)return;if(uT0===null)uT0=ts;
+  const e=(ts-uT0)%6400;let t=e<1200?0:e<3700?(e-1200)/2500:1;t=t*t*(3-2*t);
+  drawUnfold(t);requestAnimationFrame(uFrame);
+}
+
+/* ---------- plot check ---------- */
+const E=1e-6,HOUSES=[{code:"73 m²",w:11.8,d:6.22,k:"yes"},{code:"38 m²",w:6.4,d:5.9,k:"small"}];
+function orient(w,d,We,De){const lo=Math.max(w,d),sh=Math.min(w,d);if(lo<=We+E&&sh<=De+E)return{w:lo,d:sh};if(sh<=We+E&&lo<=De+E)return{w:sh,d:lo};return null;}
+let FIT=null,G={};
+function check(){
+  const W=S.W,D=S.D,s=S.s,We=W-2*s,De=D-2*s;G={W,D,s,We,De};FIT=null;
+  for(const h of HOUSES){const o=orient(h.w,h.d,We,De);if(o){FIT={h,x:s+(We-o.w)/2,y:s+(De-o.d)/2,w:o.w,d:o.d};break;}}
+  const v=$("#verdict");let key;
+  if(We<=0||De<=0){key="neg";v.innerHTML="<b>"+esc(tr("v.neg",{s:nf(s)}))+"</b><p>"+esc(tr("v.neg.p"))+"</p>";}
+  else if(!FIT){key="no";v.innerHTML="<b>"+esc(tr("v.no"))+"</b><p>"+esc(tr("v.no.p",{w:nf(We),d:nf(De)}))+"</p>";}
+  else if(FIT.h.k==="yes"){key="yes";v.innerHTML="<b>"+esc(tr("v.yes"))+"</b><p>"+esc(tr("v.yes.p",{a:nf(FIT.x),p:nf(100*FIT.w*FIT.d/(W*D),0)}))+"</p>";}
+  else{key="small";v.innerHTML="<b>"+esc(tr("v.small"))+"</b><p>"+esc(tr("v.small.p"))+"</p>";}
+  v.className="verdict"+(key==="no"||key==="neg"?" no":"");
+  S.verdict=key==="neg"?"no":key;
+  drawPlan();links();
+}
+function dimH(x1,x2,y,label,below){
+  const m=(x1+x2)/2,q=v=>v.toFixed(1);
+  return '<g class="dim"><line x1="'+q(x1)+'" y1="'+q(y)+'" x2="'+q(x2)+'" y2="'+q(y)+'"/><line x1="'+q(x1-4)+'" y1="'+q(y+4)+'" x2="'+q(x1+4)+'" y2="'+q(y-4)+'"/><line x1="'+q(x2-4)+'" y1="'+q(y+4)+'" x2="'+q(x2+4)+'" y2="'+q(y-4)+'"/><text class="p-t" x="'+q(m)+'" y="'+q(below?y+15:y-6)+'" text-anchor="middle">'+label+"</text></g>";
+}
+function dimV(x,y1,y2,label,right){
+  const m=(y1+y2)/2,t0=right?x+15:x-7,q=v=>v.toFixed(1);
+  return '<g class="dim"><line x1="'+q(x)+'" y1="'+q(y1)+'" x2="'+q(x)+'" y2="'+q(y2)+'"/><line x1="'+q(x-4)+'" y1="'+q(y1+4)+'" x2="'+q(x+4)+'" y2="'+q(y1-4)+'"/><line x1="'+q(x-4)+'" y1="'+q(y2+4)+'" x2="'+q(x+4)+'" y2="'+q(y2-4)+'"/><text class="p-t" x="'+q(t0)+'" y="'+q(m)+'" text-anchor="middle" transform="rotate(-90 '+q(t0)+" "+q(m)+')">'+label+"</text></g>";
+}
+function drawPlan(){
+  const host=$("#plan"),cw=host.clientWidth||700,small=cw<540,g=G;
+  const vw=small?430:780,vh=small?470:540,pad=small?{l:50,r:22,t:44,b:84}:{l:88,r:48,t:54,b:92};
+  const k=Math.min((vw-pad.l-pad.r)/g.W,(vh-pad.t-pad.b)/g.D);
+  const pw=g.W*k,ph=g.D*k,ox=pad.l+(vw-pad.l-pad.r-pw)/2,oy=pad.t+(vh-pad.t-pad.b-ph)/2,f=v=>v.toFixed(1);
+  let o='<svg viewBox="0 0 '+vw+" "+vh+'" role="img" aria-label="'+esc(tr("plan.aria"))+'"><defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="p-hatch" x1="0" y1="0" x2="0" y2="7"/></pattern></defs>';
+  o+='<rect class="p-street" x="'+f(ox-16)+'" y="'+f(oy+ph+9)+'" width="'+f(pw+32)+'" height="20" opacity=".55"/><text class="p-t2" x="'+f(ox+pw/2)+'" y="'+f(oy+ph+23)+'" text-anchor="middle">'+esc(tr("plan.street"))+"</text>";
+  o+='<rect class="p-plot" x="'+f(ox)+'" y="'+f(oy)+'" width="'+f(pw)+'" height="'+f(ph)+'"/>';
+  if(g.We>0&&g.De>0&&g.s>0){
+    o+='<rect class="p-limit" x="'+f(ox+g.s*k)+'" y="'+f(oy+g.s*k)+'" width="'+f(g.We*k)+'" height="'+f(g.De*k)+'"/>';
+    if(g.We*k>96&&g.s*k>9)o+='<text class="p-limit-t" x="'+f(ox+g.s*k+5)+'" y="'+f(oy+g.s*k+14)+'">'+esc(tr("plan.limit"))+"</text>";
+    if(g.s*k>30)o+=dimH(ox,ox+g.s*k,oy+ph*.5,nf(g.s,2),false);
+  }
+  if(FIT){
+    const x=ox+FIT.x*k,y=oy+FIT.y*k,w=FIT.w*k,h=FIT.d*k;
+    o+='<rect class="p-build-bg" x="'+f(x)+'" y="'+f(y)+'" width="'+f(w)+'" height="'+f(h)+'"/><rect class="p-build" fill="url(#hatch)" x="'+f(x)+'" y="'+f(y)+'" width="'+f(w)+'" height="'+f(h)+'"/>';
+    if(w>50&&h>20)o+='<text class="p-code" x="'+f(x+w/2)+'" y="'+f(y+h/2+5)+'" text-anchor="middle">'+esc(FIT.h.code)+"</text>";
+    if(oy+ph-(y+h)>34&&w>44)o+=dimH(x,x+w,y+h+13,nf(FIT.w,2),true);
+    if(ox+pw-(x+w)>34&&h>44)o+=dimV(x+w+13,y,y+h,nf(FIT.d,2),true);
+  }
+  o+=dimH(ox,ox+pw,oy-(small?18:24),nf(g.W,2),false);
+  o+=dimV(ox-(small?20:28),oy,oy+ph,nf(g.D,2),false);
+  const want=small?90:140;let Lb=1;for(const c of [1,2,5,10,20,50,100,200])if(c*k<=want)Lb=c;
+  const bx=small?16:24,by=vh-(small?26:30),bl=Lb*k;
+  o+='<rect class="p-bar-a" x="'+bx+'" y="'+by+'" width="'+f(bl/2)+'" height="6"/><rect class="p-bar-b" x="'+f(bx+bl/2)+'" y="'+by+'" width="'+f(bl/2)+'" height="6"/><text class="p-t2" x="'+bx+'" y="'+(by+20)+'">0</text><text class="p-t2" x="'+f(bx+bl/2)+'" y="'+(by+20)+'" text-anchor="middle">'+nf(Lb/2)+'</text><text class="p-t2" x="'+f(bx+bl)+'" y="'+(by+20)+'" text-anchor="middle">'+Lb+" m</text></svg>";
+  host.innerHTML=o;
+  const built=FIT?FIT.w*FIT.d:0;
+  $("#tb").innerHTML=[[tr("plan.plot"),nf(g.W)+" × "+nf(g.D)+" m, "+nf(g.W*g.D,0)+" m²"],[tr("plan.field"),g.We>0&&g.De>0?nf(g.We)+" × "+nf(g.De)+" m":tr("plan.none")],[tr("plan.built"),FIT?nf(built,0)+" m², "+nf(100*built/(g.W*g.D),0)+" %":"0 m²"]]
+    .map(c=>"<div><dt>"+esc(c[0])+"</dt><dd>"+esc(c[1])+"</dd></div>").join("");
+}
+
+/* ---------- WhatsApp links ---------- */
+function links(){
+  const msg={general:tr("wa.general"),show:tr("wa.show"),alt0:tr("wa.alt0"),alt1:tr("wa.alt1"),alt2:tr("wa.alt2"),check:tr("wa.check",{W:nf(S.W),D:nf(S.D),s:nf(S.s),v:tr("vs."+(S.verdict||"yes"))})};
+  document.querySelectorAll("[data-wa]").forEach(a=>{a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg[a.dataset.wa]);});
+}
+
+/* ---------- texts ---------- */
+function render(){
+  document.documentElement.lang=S.lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[S.lang][el.getAttribute("data-i18n")];if(typeof v==="string")el.textContent=fill(v);});
+  document.querySelectorAll("[data-price]").forEach(el=>{const p=CFG.prices[el.dataset.price];if(p)el.textContent=money(p);});
+  $("#num").textContent=CFG.phoneDisplay;
+  document.querySelector(".track .ours").style.width=(100*CFG.prices.f73/292000).toFixed(2)+"%"; // 292.000 € = 73 m² × 4.000 €
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===S.lang)));
+  const t=T[S.lang],pair=(a,b)=>a.map(r=>"<"+b[0]+">"+esc(r[0])+"</"+b[0]+"><"+b[1]+">"+esc(r[1])+"</"+b[1]+">").join("");
+  $("#facts").innerHTML=t.facts.map(r=>"<div><dt>"+esc(r[0])+"</dt><dd>"+esc(r[1])+"</dd></div>").join("");
+  $("#time-rows").innerHTML=pair(t.time,["dt","dd"]);
+  $("#specs").innerHTML=pair(t.specs,["dt","dd"]);
+  $("#gain").innerHTML=t.gain.map(r=>"<li><h3>"+esc(r[0])+"</h3><p>"+esc(r[1])+"</p></li>").join("");
+  $("#steps3").innerHTML=t.steps3.map(r=>"<li><h3>"+esc(r[0])+"</h3><p>"+esc(r[1])+"</p></li>").join("");
+  $("#steps4").innerHTML=t.steps4.map(r=>"<li><h3>"+esc(r[0])+"</h3><p>"+esc(r[1])+"</p></li>").join("");
+  $("#faq").innerHTML=t.faq.map((q,i)=>"<details"+(i===0?" open":"")+"><summary>"+esc(q[0])+"</summary><p>"+esc(q[1])+"</p></details>").join("");
+  $("#alts").innerHTML=t.alts.map((r,i)=>{const pp=CFG.prices[["f38","r85","k38"][i]];return '<article class="alt"><figure>'+ART[i]+'</figure><div class="head"><h3>'+esc(r[0])+'</h3><span class="size">'+esc(r[2])+'</span></div><p>'+esc(r[1])+"</p>"+(pp?'<p class="altp">'+esc(t.from)+" "+money(pp)+"</p>":"")+'<div><a class="btn line small" data-wa="alt'+i+'" href="https://wa.me/'+WA+'" target="_blank" rel="noopener">'+WAI+"<span>"+esc(t["alt.cta"])+"</span></a></div></article>";}).join("");
+  $("#img-living").alt=t["alt.living"];$("#img-bed").alt=t["alt.bed"];$("#img-dusk").alt=t["alt.dusk"];
+  const film=$("#film");$("#film-toggle").textContent=tr(film.paused?"video.play":"video.pause");
+  if(!uRun)drawUnfold(1);
+  check();
+}
+
+/* ---------- events ---------- */
+const num=(el,lo,hi,fb)=>{const v=parseFloat(String(el.value).replace(",","."));return isFinite(v)?Math.min(hi,Math.max(lo,v)):fb;};
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.id==="plot-w"){S.W=num(t,4,300,S.W);check();}
+  else if(t.id==="plot-d"){S.D=num(t,4,300,S.D);check();}
+  else if(t.id==="setback"){S.s=num(t,0,30,S.s);check();}
+});
+document.addEventListener("click",e=>{
+  const lb=e.target.closest("[data-lang]");
+  if(lb){S.lang=lb.dataset.lang;try{localStorage.setItem("parcela-lang",S.lang);}catch(err){}render();return;}
+  if(e.target.id==="film-toggle"){const f=$("#film");if(f.paused){const p=f.play();if(p&&p.catch)p.catch(()=>{});}else f.pause();setTimeout(()=>{e.target.textContent=tr(f.paused?"video.play":"video.pause");},60);return;}
+  if(e.target.id==="copy"){
+    const btn=e.target,txt=$("#num").textContent,ok=()=>{btn.textContent=tr("copied");setTimeout(()=>{btn.textContent=tr("copy");},1800);};
+    const fb=()=>{const r=document.createRange();r.selectNodeContents($("#num"));const s=getSelection();s.removeAllRanges();s.addRange(r);};
+    try{navigator.clipboard.writeText(txt).then(ok,fb);}catch(err){fb();}
+  }
+});
+if(calm){const f=$("#film");f.removeAttribute("autoplay");f.pause();}
+if(window.IntersectionObserver){
+  new IntersectionObserver(es=>{for(const en of es){const v=en.target;if(en.isIntersecting&&!calm){const p=v.play();if(p&&p.catch)p.catch(()=>{});}else v.pause();}},{threshold:.25}).observe($("#orbit"));
+  if(!calm)new IntersectionObserver(es=>{for(const en of es){if(en.isIntersecting){if(!uRun){uRun=true;uT0=null;requestAnimationFrame(uFrame);}}else{uRun=false;drawUnfold(1);}}},{threshold:.3}).observe($("#unfold-svg"));
+}
+let rt;if(window.ResizeObserver)new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(drawPlan,120);}).observe($("#plan"));
+render();
+})();
+</script>
+</body>
+</html>

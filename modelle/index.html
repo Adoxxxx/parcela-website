@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Modulhäuser und Haus-Finder | Parcela</title>
+<meta name="description" content="Sechs Bauweisen vom Modulhaus bis zur Stahlhalle. Der Haus-Finder zeigt, welche Modelle auf Ihr Grundstück passen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Modulhäuser und Haus-Finder | Parcela">
+<meta property="og:description" content="Sechs Bauweisen vom Modulhaus bis zur Stahlhalle. Der Haus-Finder zeigt, welche Modelle auf Ihr Grundstück passen.">
+<meta name="theme-color" content="#15262B">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{color-scheme:light}
+[hidden]{display:none!important}
+/* Layout: one site-plan sheet is the centrepiece. Text is left-aligned on a 1200px measure;
+   controls sit left of the plan, results below it. Colour follows drawing convention:
+   the proposed building is red, the building limit is blue, the plot is tinted green. */
+:root{
+  --paper:#ECEFEA; --sheet:#F8F9F5; --ink:#15262B; --ink-2:#4A5C60; --line:#C2CBC6;
+  --build:#C8341C; --on-build:#FFFFFF; --lot:#DCE6D2; --limit:#2A6C88; --glass:#B9D3DD;
+  --face-top:#F8F9F5; --face-roof:#E6EBE6; --face-side:#D6DDD8; --face-front:#C3CCC7;
+  --wa:#25D366; --on-wa:#06270F;
+  --font-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-data:"Barlow Semi Condensed","DIN Alternate","Arial Narrow",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+    --build:#FF6B4A; --on-build:#1C0A05; --lot:#1B3127; --limit:#73B9D6; --glass:#2F5868;
+    --face-top:#2C4046; --face-roof:#25383D; --face-side:#1E3035; --face-front:#17282C;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+  --build:#FF6B4A; --on-build:#1C0A05; --lot:#1B3127; --limit:#73B9D6; --glass:#2F5868;
+  --face-top:#2C4046; --face-roof:#25383D; --face-side:#1E3035; --face-front:#17282C;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.03rem/1.55 var(--font-body);-webkit-text-size-adjust:100%}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--font-display);font-stretch:125%;letter-spacing:-.015em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.05rem,5.4vw,3.7rem);font-weight:700;line-height:1.01;letter-spacing:-.025em;max-width:16ch}
+h2{font-size:clamp(1.55rem,3vw,2.2rem);font-weight:650}
+h3{font-size:1.18rem;font-weight:650}
+p{margin:0}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+:focus-visible{outline:2px solid var(--limit);outline-offset:2px}
+.data{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-stretch:125%;font-weight:750;font-size:1.3rem;letter-spacing:-.02em}
+.brand svg{width:28px;height:28px;flex:none}
+.top nav{display:flex;gap:22px;font-size:.96rem}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.top-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.lang button{font:500 .88rem var(--font-data);background:transparent;color:var(--ink);border:0;padding:7px 10px;cursor:pointer}
+.lang button + button{border-left:1px solid var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.btn{display:inline-block;font:600 1rem var(--font-body);background:var(--build);color:var(--on-build);border:1px solid var(--build);border-radius:3px;padding:11px 18px;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.07)}
+.btn.small{padding:7px 12px;font-size:.92rem}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.wa{background:var(--wa);color:var(--on-wa);border-color:var(--wa)}
+.legal{display:flex;flex-wrap:wrap;gap:6px 22px}
+.linkbtn{font:inherit;font-weight:550;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+@media (max-width:760px){.top nav{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(20px,4vw,52px) clamp(20px,3vw,36px);display:grid;gap:18px}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.22rem);max-width:58ch;color:var(--ink-2)}
+
+/* finder */
+.finder{display:grid;grid-template-columns:minmax(290px,370px) minmax(0,1fr);gap:clamp(22px,3.4vw,44px);align-items:start;padding-bottom:clamp(40px,6vw,80px)}
+@media (max-width:920px){.finder{grid-template-columns:minmax(0,1fr)}}
+.controls{display:grid;gap:24px;min-width:0}
+fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:10px}
+legend{font-family:var(--font-display);font-stretch:112%;font-weight:650;font-size:1.02rem;padding:0;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:block;border:1px solid var(--ink);border-radius:3px;padding:8px 12px;font-size:.96rem;line-height:1.2}
+.chip input:checked + span{background:var(--ink);color:var(--paper)}
+.chip input:focus-visible + span{outline:2px solid var(--limit);outline-offset:2px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.tile{position:relative;cursor:pointer;min-width:0}
+.tile input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.tile .box{display:grid;gap:4px;justify-items:center;border:1px solid var(--line);border-radius:3px;padding:8px 4px 7px;background:var(--sheet);font-size:.82rem;line-height:1.15;text-align:center;height:100%}
+.tile svg{width:100%;height:46px}
+.tile input:checked + .box{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.tile input:focus-visible + .box{outline:2px solid var(--limit);outline-offset:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:5px;min-width:0}
+.field > label,.field > .lab{font-size:.9rem;color:var(--ink-2)}
+.num{display:flex;align-items:center;border:1px solid var(--ink);border-radius:3px;background:var(--sheet)}
+.num input{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:500 1.2rem var(--font-data);font-variant-numeric:tabular-nums;padding:9px 4px 9px 12px}
+.num input:focus{outline:none}
+.num:focus-within{outline:2px solid var(--limit);outline-offset:2px}
+.num span{padding-right:12px;font:500 1rem var(--font-data);color:var(--ink-2)}
+.hint{font-size:.86rem;color:var(--ink-2);line-height:1.4}
+.range{display:flex;align-items:center;gap:14px}
+.range input{flex:1;min-width:0;accent-color:var(--build)}
+.range output{font:600 1.2rem var(--font-data);font-variant-numeric:tabular-nums;min-width:4.6em;text-align:right}
+.check{display:flex;gap:10px;align-items:center;font-size:.96rem;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--ink);margin:0}
+
+.out{display:grid;gap:22px;min-width:0}
+.sheet{background:var(--sheet);border:1px solid var(--ink)}
+.sheet svg{display:block;width:100%;height:auto}
+.tb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.tb div{padding:8px 12px 9px;border-left:1px solid var(--ink);min-width:0}
+.tb div:first-child{border-left:0}
+.tb dt{font-size:.78rem;color:var(--ink-2);line-height:1.2}
+.tb dd{margin:0;font:500 1.02rem/1.25 var(--font-data);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+dl{margin:0}
+@media (max-width:600px){.tb{grid-template-columns:1fr 1fr}.tb div:nth-child(3){border-left:0}.tb div:nth-child(n+3){border-top:1px solid var(--ink)}}
+.plan-note{font-size:.84rem;color:var(--ink-2);margin-top:8px}
+
+/* plan drawing */
+.p-plot{fill:var(--lot);stroke:var(--ink);stroke-width:1.5;stroke-dasharray:14 4 2 4}
+.p-limit{fill:none;stroke:var(--limit);stroke-width:1.3;stroke-dasharray:6 4}
+.p-limit-t{fill:var(--limit);font:500 12px var(--font-data)}
+.p-build{stroke:var(--build);stroke-width:2}
+.p-build-bg{fill:var(--sheet)}
+.p-hatch{stroke:var(--build);stroke-width:1.1}
+.p-code{fill:var(--build);font:600 14px var(--font-data);paint-order:stroke;stroke:var(--sheet);stroke-width:4px;stroke-linejoin:round}
+.p-street{fill:var(--line)}
+.p-t{fill:var(--ink);font:500 13px var(--font-data);font-variant-numeric:tabular-nums}
+.p-t2{fill:var(--ink-2);font:500 12px var(--font-data)}
+.dim line{stroke:var(--ink);stroke-width:1}
+.p-bar-a{fill:var(--ink)} .p-bar-b{fill:var(--sheet);stroke:var(--ink);stroke-width:1}
+@media (prefers-reduced-motion:no-preference){.p-b{animation:rise .28s ease-out both}}
+@keyframes rise{from{opacity:.25}to{opacity:1}}
+
+/* results */
+.res-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.res-head p{color:var(--ink-2);font-size:.96rem}
+.res-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.res{width:100%;display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:3px;padding:8px 14px 8px 8px;cursor:pointer}
+.res:hover{border-color:var(--ink-2)}
+.res[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--sheet)}
+.res svg{width:76px;height:54px}
+.res b{font-family:var(--font-display);font-stretch:112%;font-weight:650;font-size:1.05rem}
+.res .l2{display:block;font:400 .98rem/1.3 var(--font-data);font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.res .warn{color:var(--build)}
+.tag{font:500 .82rem var(--font-data);border:1px solid var(--ink);border-radius:20px;padding:2px 9px;white-space:nowrap}
+.tag.best{background:var(--ink);color:var(--paper)}
+.res-meta{display:grid;gap:5px;justify-items:end}
+@media (max-width:520px){.res{grid-template-columns:60px minmax(0,1fr)}.res svg{width:60px;height:44px}.res-meta{grid-column:1/-1;justify-items:start;display:flex;flex-wrap:wrap}}
+.empty{border:1px dashed var(--ink-2);border-radius:3px;padding:18px 20px;display:grid;gap:6px}
+.res-foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+
+/* iso drawings */
+.iso polygon{stroke:var(--ink);stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.i-top{fill:var(--face-top)} .i-roof{fill:var(--face-roof)} .i-side{fill:var(--face-side)} .i-front{fill:var(--face-front)}
+.i-glass{fill:var(--glass)} .i-door{fill:var(--ink-2)}
+.iso polygon.i-ground{fill:var(--lot);stroke-dasharray:7 3 1.5 3;stroke-width:1}
+
+/* sections */
+.band{padding-block:clamp(44px,7vw,92px);border-top:1px solid var(--line)}
+.band > .wrap{display:grid;gap:clamp(24px,3.4vw,40px)}
+.intro{display:grid;gap:10px;max-width:62ch}
+.intro p{color:var(--ink-2)}
+.cat{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,3.4vw,44px) clamp(22px,3vw,36px)}
+.cat article{display:grid;gap:12px;align-content:start;min-width:0}
+.cat figure{margin:0;background:var(--sheet);border:1px solid var(--line);padding:14px}
+.cat figure svg{display:block;width:100%;height:190px}
+.cat .code{font:500 .98rem var(--font-data);color:var(--ink-2)}
+.cat .head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:.93rem;border-top:1px solid var(--line);padding-top:10px}
+.spec dt{color:var(--ink-2)}
+.spec dd{margin:0}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(22px,3vw,36px)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-content:start}
+.steps li::before{content:counter(s);grid-row:1/3;font:700 2.3rem/1 var(--font-display);font-stretch:125%;color:var(--build);min-width:1.1em}
+.steps p{color:var(--ink-2);font-size:.98rem}
+.two{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+.faq{display:grid;gap:0;border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style-position:outside;margin-left:1.2em}
+.faq details p{margin-top:8px;color:var(--ink-2);max-width:64ch;margin-left:1.2em}
+.works{padding:18px 20px;display:grid;gap:12px}
+.works dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:.96rem}
+.works dt{color:var(--ink-2)}
+.works dd{margin:0}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;max-width:820px}
+form .full{grid-column:1/-1}
+@media (max-width:620px){form{grid-template-columns:minmax(0,1fr)}}
+.in{width:100%;font:inherit;color:var(--ink);background:var(--sheet);border:1px solid var(--ink);border-radius:3px;padding:10px 12px}
+textarea.in{min-height:110px;resize:vertical}
+.selbox{border:1px dashed var(--ink-2);border-radius:3px;padding:12px 14px;font-size:.96rem;display:grid;gap:3px}
+.err{color:var(--build);font-size:.88rem}
+.done{border:1px solid var(--ink);background:var(--sheet);padding:18px 20px;display:grid;gap:12px;max-width:820px}
+.done pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:400 .98rem/1.45 var(--font-data);user-select:all}
+footer{border-top:1px solid var(--line);padding-block:26px 34px;color:var(--ink-2);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../" aria-label="Parcela">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" fill="var(--lot)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="6 2 1.5 2"/><rect x="8" y="10" width="13" height="9" fill="var(--build)"/></svg>
+    Parcela
+  </a>
+  <nav>
+    <a href="#finder" data-i18n="nav.finder">Haus-Finder</a>
+    <a href="#haeuser" data-i18n="nav.houses">Häuser</a>
+    <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
+    <a href="#fragen" data-i18n="nav.faq">Fragen</a>
+  </nav>
+  <div class="top-right">
+    <div class="lang" role="group" aria-label="Sprache, jezik, language">
+      <button type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button type="button" data-lang="bs" aria-pressed="false">BS</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn small" href="#anfrage" data-i18n="nav.cta">Anfrage stellen</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <h1 data-i18n="h1">Das Haus, das auf Ihr Grundstück passt.</h1>
+    <p class="lead" data-i18n="lead">Modulhäuser, Ferienhäuser, Unterkünfte und Hallen direkt aus dem Werk. Sie geben die Maße Ihres Grundstücks ein und sehen sofort, welche Modelle darauf Platz haben.</p>
+  </section>
+
+  <section class="wrap finder" id="finder" aria-labelledby="finder-h">
+    <h2 class="sr" id="finder-h" data-i18n="nav.finder">Haus-Finder</h2>
+    <div class="controls">
+      <fieldset>
+        <legend data-i18n="f.use">Wofür brauchen Sie das Gebäude?</legend>
+        <div class="chips" id="use-chips"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="f.plot">Ihr Grundstück</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="mode" id="mode-dims" value="dims" checked><span data-i18n="f.mode.dims">Breite und Tiefe</span></label>
+          <label class="chip"><input type="radio" name="mode" id="mode-area" value="area"><span data-i18n="f.mode.area">Nur Fläche</span></label>
+        </div>
+        <div class="pair" id="dims-row">
+          <div class="field"><label for="plot-w" data-i18n="f.width">Breite an der Straße</label><div class="num"><input id="plot-w" type="number" inputmode="decimal" min="4" max="300" step="0.5" value="20"><span>m</span></div></div>
+          <div class="field"><label for="plot-d" data-i18n="f.depth">Tiefe</label><div class="num"><input id="plot-d" type="number" inputmode="decimal" min="4" max="300" step="0.5" value="30"><span>m</span></div></div>
+        </div>
+        <div class="field" id="area-row" hidden>
+          <label for="plot-a" data-i18n="f.area">Grundstücksfläche</label>
+          <div class="num"><input id="plot-a" type="number" inputmode="decimal" min="20" max="90000" step="10" value="600"><span>m²</span></div>
+          <p class="hint" data-i18n="f.area.note">Wir rechnen mit einem Rechteck im Verhältnis 2 zu 3.</p>
+        </div>
+        <div class="field">
+          <label for="setback" data-i18n="f.setback">Abstand zur Grundstücksgrenze</label>
+          <div class="num"><input id="setback" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="3"><span>m</span></div>
+          <p class="hint" data-i18n="f.setback.note">3 m ist ein üblicher Richtwert. Den genauen Wert legt Ihre Gemeinde fest.</p>
+        </div>
+      </fieldset>
+
+      <fieldset id="need-set">
+        <legend id="need-leg" data-i18n="f.need">Wie viel Fläche brauchen Sie?</legend>
+        <div class="range" id="area-need"><input id="need" type="range" min="30" max="200" step="5" value="85" aria-labelledby="need-leg"><output id="need-out" for="need">85 m²</output></div>
+        <div class="field" id="units-need" hidden><div class="num"><input id="units" type="number" inputmode="numeric" min="1" max="60" step="1" value="4" aria-labelledby="need-leg"><span data-i18n="f.units.unit">Einheiten</span></div></div>
+      </fieldset>
+
+      <fieldset id="style-set">
+        <legend data-i18n="f.style">Was gefällt Ihnen?</legend>
+        <div class="tiles" id="style-tiles"></div>
+        <label class="check"><input type="checkbox" id="two" checked><span data-i18n="f.floors">Zwei Geschosse sind erlaubt</span></label>
+      </fieldset>
+    </div>
+
+    <div class="out">
+      <div>
+        <div class="sheet">
+          <div id="plan"></div>
+          <dl class="tb" id="tb"></dl>
+        </div>
+        <p class="plan-note" data-i18n="plan.note">Schema ohne Vermessung. Die Straßenseite ist angenommen.</p>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="res-head"><h3 data-i18n="r.title">Passende Modelle</h3><p id="res-count" aria-live="polite"></p></div>
+        <ul class="res-list" id="res-list"></ul>
+        <div class="res-foot" id="res-foot"><button type="button" class="btn" id="ask" data-i18n="r.ask">Dieses Modell anfragen</button><span class="hint" id="gap-note" hidden data-i18n="gap.note">Zwischen den Einheiten sind 3 m Abstand angenommen.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="haeuser">
+    <div class="wrap">
+      <div class="intro"><h2 data-i18n="c.title">Sechs Bauweisen</h2><p data-i18n="c.lead">Alle Gebäude kommen aus demselben Werk. Sie unterscheiden sich darin, wie sie transportiert und aufgestellt werden.</p></div>
+      <div class="cat" id="cat"></div>
+    </div>
+  </section>
+
+  <section class="band" id="ablauf">
+    <div class="wrap">
+      <div class="intro"><h2 data-i18n="p.title">Vom Plan bis zum Aufbau</h2></div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="band" id="fragen">
+    <div class="wrap">
+      <div class="two">
+        <div style="display:grid;gap:22px"><h2 data-i18n="q.title">Häufige Fragen</h2><div class="faq" id="faq"></div></div>
+        <aside class="sheet works"><h3 data-i18n="w.title">Das Werk</h3><dl id="works"></dl><p class="hint" data-i18n="w.note">Angaben des Herstellers.</p></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="anfrage">
+    <div class="wrap">
+      <div class="intro"><h2 data-i18n="a.title">Anfrage stellen</h2><p data-i18n="a.lead">Schreiben Sie uns, was Sie planen. Ihre Auswahl aus dem Haus-Finder wird mitgeschickt.</p></div>
+      <form id="form" novalidate>
+        <div class="field"><label for="a-name" data-i18n="a.name">Name</label><input class="in" id="a-name" autocomplete="name"><span class="err" id="e-name" hidden></span></div>
+        <div class="field"><label for="a-mail" data-i18n="a.mail">E-Mail (freiwillig)</label><input class="in" id="a-mail" type="email" autocomplete="email"><span class="err" id="e-mail" hidden></span></div>
+        <div class="field"><label for="a-tel" data-i18n="a.tel">Telefon (freiwillig)</label><input class="in" id="a-tel" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="a-land" data-i18n="a.land">Land</label><select class="in" id="a-land"></select></div>
+        <div class="field full"><label for="a-ort" data-i18n="a.ort">Ort</label><input class="in" id="a-ort" autocomplete="address-level2"></div>
+        <div class="field full"><span class="lab" data-i18n="a.sel">Ihre Auswahl</span><div class="selbox data" id="selbox"></div></div>
+        <div class="field full"><label for="a-msg" data-i18n="a.msg">Nachricht</label><textarea class="in" id="a-msg"></textarea></div>
+        <div class="full"><button class="btn" type="submit" data-i18n="a.send">Anfrage zusammenstellen</button></div>
+      </form>
+      <div class="done" id="done" hidden>
+        <h3 data-i18n="a.done">Ihre Anfrage</h3>
+        <pre id="done-text"></pre>
+        <div class="res-foot"><a class="btn wa" id="wa-send" href="https://wa.me/4369911091334" target="_blank" rel="noopener" data-i18n="a.wa">Auf WhatsApp senden</a><button type="button" class="btn ghost" id="copy" data-i18n="a.copy">Text kopieren</button></div>
+        <p class="hint" data-i18n="a.note">WhatsApp öffnet sich mit dieser Nachricht. Sie können sie vor dem Senden noch ändern.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 MAS Solutions Group LLC</span><span class="legal"><a href="../" data-i18n="legal.home">Ausklapphaus 73 m²</a><a href="../impressum/" data-i18n="legal.imprint">Impressum</a><a href="../impressum/#datenschutz" data-i18n="legal.privacy">Datenschutz</a></span></div></footer>
+
+<script src="../assets/config.js"></script>
+<script>
+(function(){
+"use strict";
+// Preise und WhatsApp-Nummer stehen in assets/config.js
+const CFG=window.PARCELA||{whatsapp:"4369911091334",prices:{}};
+/* ---------- texts ---------- */
+const T={
+de:{
+ nav:{finder:"Haus-Finder",houses:"Häuser",process:"Ablauf",faq:"Fragen",cta:"Anfrage stellen"},
+ h1:"Das Haus, das auf Ihr Grundstück passt.",
+ lead:"Modulhäuser, Ferienhäuser, Unterkünfte und Hallen direkt aus dem Werk. Sie geben die Maße Ihres Grundstücks ein und sehen sofort, welche Modelle darauf Platz haben.",
+ f:{use:"Wofür brauchen Sie das Gebäude?",plot:"Ihr Grundstück",mode:{dims:"Breite und Tiefe",area:"Nur Fläche"},width:"Breite an der Straße",depth:"Tiefe",area:"Grundstücksfläche","area.note":"Wir rechnen mit einem Rechteck im Verhältnis 2 zu 3.",setback:"Abstand zur Grundstücksgrenze","setback.note":"3 m ist ein üblicher Richtwert. Den genauen Wert legt Ihre Gemeinde fest.",need:"Wie viel Fläche brauchen Sie?",units:"Wie viele Einheiten planen Sie?","units.unit":"Einheiten",style:"Was gefällt Ihnen?",floors:"Zwei Geschosse sind erlaubt"},
+ use:{live:"Wohnen",holiday:"Ferienhaus",rent:"Vermietung und Glamping",work:"Unterkunft und Büro",hall:"Halle und Lager"},
+ style:{all:"Alles zeigen",cube:"Kubus",capsule:"Kapsel",gable:"Satteldach"},
+ r:{from:"ab",title:"Passende Modelle",count:"{n} von {m} Modellen passen auf Ihr Grundstück.",best:"Passt am besten",onplan:"Auf dem Plan",ask:"Dieses Modell anfragen","none.title":"Kein Modell passt",none:"Nach Abzug der Abstände bleibt ein Baufeld von {w} × {d} m. Dafür ist kein Modell dieser Auswahl klein genug. Verringern Sie den Abstand, wenn Ihre Gemeinde das erlaubt, oder ändern Sie Nutzung und Stil.","none.neg":"Bei {s} m Abstand bleibt auf diesem Grundstück kein Baufeld übrig.",unitsOk:"{n} Einheiten, bis zu {max} möglich",unitsPart:"nur {max} von {n} Einheiten haben Platz",custom:"nach Maß, hier {w} × {d} m",hallMax:"größte mögliche Halle auf diesem Baufeld",fl1:"1 Geschoss",fl2:"2 Geschosse",mod1:"1 Modul",modN:"{n} Module",ca:"ca."},
+ gap:{note:"Zwischen den Einheiten sind 3 m Abstand angenommen."},
+ plan:{street:"Straße",limit:"Baugrenze",note:"Schema ohne Vermessung. Die Straßenseite ist angenommen.",plot:"Grundstück",field:"Baufeld",built:"Bebaut",model:"Modell",none:"keines",aria:"Lageplan des Grundstücks mit dem gewählten Modell"},
+ c:{title:"Sechs Bauweisen",lead:"Alle Gebäude kommen aus demselben Werk. Sie unterscheiden sich darin, wie sie transportiert und aufgestellt werden.",check:"Im Haus-Finder prüfen"},
+ lines:{
+  raster:{name:"Modulhaus",code:"R14 bis R170",desc:"Module mit 5,90 × 2,40 m werden nebeneinander, hintereinander oder übereinander verschraubt. So entsteht ein Gartenbüro aus einem Modul oder ein Familienhaus aus sechs.",spec:[["Modul","5,90 × 2,40 × 2,90 m"],["Fläche","14 bis 170 m²"],["Wand","Steinwoll-Sandwichpaneel 50 mm, stärker auf Wunsch"],["Geeignet für","Wohnen, Büro, Unterkunft"]]},
+  wing:{name:"Ausklapphaus",code:"F38 und F73",desc:"Das Haus kommt 2,20 m breit an. Vor Ort werden beide Seitenflügel ausgeklappt. Bad, Küche und Elektrik baut das Werk auf Wunsch schon ein.",spec:[["F38","5,90 × 6,40 m, ca. 38 m²"],["F73","11,80 × 6,20 m, ca. 73 m², drei Schlafzimmer"],["Wand","Steinwollpaneel, 75 oder 100 mm gegen Aufpreis"],["Geeignet für","Ferienhaus, Wohnen, Vermietung"]]},
+  fold:{name:"Faltcontainer",code:"P15",desc:"Wird 40 cm flach geliefert und ohne Schweißen aufgeklappt. Zehn Stück passen in einen 40-Fuß-Container, das hält die Fracht pro Einheit niedrig.",spec:[["Maße","5,90 × 2,50 × 2,47 m, ca. 15 m²"],["Wand","Steinwollpaneel 50 oder 75 mm"],["Boden","Zementfaserplatte mit PVC-Belag"],["Geeignet für","Baustelle, Saisonbetrieb, Lager"]]},
+  capsule:{name:"Kapselhaus",code:"K38 und K72D",desc:"Fertig ausgebaute Einheit mit Glasfront, Bad und zentraler Steuerung für Licht und Klima. Gedacht für Ferienanlagen und Glamping.",spec:[["K38","11,50 × 3,30 × 3,20 m, ca. 38 m²"],["K72D","zwei Geschosse, 72 m² auf 38 m² Grundfläche"],["Hülle","verzinkter Stahlrahmen, Aluminiumfassade"],["Geeignet für","Vermietung, Ferienhaus"]]},
+  gable:{name:"Leichtstahlhaus",code:"G, nach Maß",desc:"Wohnhaus mit Satteldach in Leichtstahlbauweise, mit einem oder zwei Geschossen. Den Grundriss zeichnet das Werk nach Ihrem Plan.",spec:[["Maße","nach Plan"],["Tragwerk","Leichtstahlrahmen"],["Lieferung","Bausatz zur Montage vor Ort"],["Geeignet für","Wohnen, Ferienhaus"]]},
+  hall:{name:"Stahlhalle",code:"H, nach Maß",desc:"Stützenfreie Halle für Lager, Werkstatt oder Produktion. Spannweite, Höhe und Tore werden für die Wind- und Schneelast Ihres Standorts berechnet.",spec:[["Maße","nach Plan"],["Tragwerk","geschraubter Stahlrahmen"],["Hülle","Trapezblech oder gedämmte Paneele"],["Geeignet für","Lager, Werkstatt, Produktion"]]}
+ },
+ p:{title:"Vom Plan bis zum Aufbau",steps:[["Modell wählen","Sie prüfen im Haus-Finder, was auf Ihr Grundstück passt, und schicken uns Ihre Auswahl."],["Angebot erhalten","Wir klären Ausführung, Dämmung und Ausstattung mit dem Werk und nennen Ihnen den Preis mit Fracht, Zoll und Lieferung."],["Fertigung im Werk","Standardmodelle fertigt das Werk nach eigenen Angaben in 10 bis 15 Tagen. Sonderanfertigungen dauern länger."],["Seefracht","Der Container ist auf dem Seeweg nach Europa etwa fünf bis acht Wochen unterwegs."],["Zoll und Lieferung","Nach der Verzollung bringt ein LKW das Haus zu Ihrem Grundstück. Die Zufahrt muss für LKW und Kran reichen."],["Aufbau","Faltcontainer und Ausklapphäuser stehen meist am selben Tag. Modulhäuser, Leichtstahlhäuser und Hallen montiert ein Team in Tagen bis Wochen."]]},
+ q:{title:"Häufige Fragen",items:[["Brauche ich eine Baugenehmigung?","In den meisten Fällen ja. In Österreich regelt das die Bauordnung des Bundeslandes, in Bosnien und Herzegowina die zuständige Gemeinde. Klären Sie das vor der Bestellung mit Ihrem Bauamt. Für den Antrag bekommen Sie von uns Pläne und technische Daten."],["Kann man darin das ganze Jahr wohnen?","Das hängt von der Ausführung ab. Die Standardwand hat 50 mm Dämmung, das reicht für Sommerhäuser, Büros und Unterkünfte. Ein ganzjährig bewohntes Haus braucht stärkere Dämmung, bessere Fenster und einen Energieausweis. Vor dem Angebot sagen wir Ihnen, welche Ausführung Ihr Standort verlangt."],["Was kostet ein Haus?","Den Preis nennen wir im Angebot, weil Fracht, Zoll und Ausstattung ihn stark verändern. Für ein Angebot brauchen wir das Modell, den Standort und die gewünschte Ausführung."],["Was muss ich auf dem Grundstück vorbereiten?","Ein Fundament nach Vorgabe des Werks, Anschlüsse für Strom, Wasser und Kanal sowie eine Zufahrt für LKW und Kran."],["Wer baut das Haus auf?","Ausklapphäuser und Faltcontainer setzt ein Kran ab, danach werden sie aufgeklappt. Modulhäuser, Leichtstahlhäuser und Hallen brauchen ein Montageteam. Wir organisieren die Montage oder Sie bekommen die Anleitung für Ihre Baufirma."]]},
+ w:{title:"Das Werk",note:"Angaben des Herstellers.",rows:[["Standort","Provinz Guangdong, China"],["Gegründet","2012"],["Produktion","fünf Werke, 120.000 m²"],["Zertifikate","ISO 9001, ISO 14001, ISO 45001, CE-Kennzeichnung"]]},
+ a:{title:"Anfrage stellen",lead:"Schreiben Sie uns, was Sie planen. Ihre Auswahl aus dem Haus-Finder wird mitgeschickt.",name:"Name",mail:"E-Mail (freiwillig)",tel:"Telefon (freiwillig)",land:"Land",lands:["Österreich","Bosnien und Herzegowina","Anderes Land"],ort:"Ort",sel:"Ihre Auswahl",msg:"Nachricht",send:"Anfrage zusammenstellen",done:"Ihre Anfrage",copy:"Text kopieren",copied:"Kopiert",wa:"Auf WhatsApp senden",note:"WhatsApp öffnet sich mit dieser Nachricht. Sie können sie vor dem Senden noch ändern.",eName:"Geben Sie Ihren Namen ein.",eMail:"Geben Sie eine gültige E-Mail-Adresse ein.",head:"Anfrage über Parcela",noSel:"Noch kein Modell gewählt.",sumPlot:"Grundstück {W} × {D} m, Abstand zur Grenze {s} m.",sumUse:"Nutzung: {u}"},
+ legal:{home:"Ausklapphaus 73 m²",imprint:"Impressum",privacy:"Datenschutz"}
+},
+bs:{
+ nav:{finder:"Pronađi kuću",houses:"Kuće",process:"Postupak",faq:"Pitanja",cta:"Pošaljite upit"},
+ h1:"Kuća koja stane na Vašu parcelu.",
+ lead:"Modularne kuće, vikendice, smještajne jedinice i hale direktno iz tvornice. Unesite dimenzije parcele i odmah vidite koji modeli na nju stanu.",
+ f:{use:"Za šta Vam treba objekat?",plot:"Vaša parcela",mode:{dims:"Širina i dubina",area:"Samo površina"},width:"Širina uz ulicu",depth:"Dubina",area:"Površina parcele","area.note":"Računamo s pravougaonikom u omjeru 2 prema 3.",setback:"Udaljenost od međe","setback.note":"3 m je uobičajena vrijednost. Tačnu vrijednost određuje Vaša općina.",need:"Koliko površine Vam treba?",units:"Koliko jedinica planirate?","units.unit":"jedinica",style:"Šta Vam se sviđa?",floors:"Dozvoljene su dvije etaže"},
+ use:{live:"Stanovanje",holiday:"Vikendica",rent:"Iznajmljivanje i glamping",work:"Smještaj i ured",hall:"Hala i skladište"},
+ style:{all:"Prikaži sve",cube:"Kubus",capsule:"Kapsula",gable:"Dvovodni krov"},
+ r:{from:"od",title:"Modeli koji odgovaraju",count:"Na Vašu parcelu stane {n} od {m} modela.",best:"Najbolje odgovara",onplan:"Na planu",ask:"Zatražite ponudu za ovaj model","none.title":"Nijedan model ne stane",none:"Kad se odbiju udaljenosti od međe, ostaje zona gradnje od {w} × {d} m. Nijedan model iz ovog izbora nije dovoljno mali. Smanjite udaljenost ako to Vaša općina dozvoljava ili promijenite namjenu i stil.","none.neg":"Uz udaljenost od {s} m na ovoj parceli ne ostaje prostor za gradnju.",unitsOk:"{n} jedinica, moguće do {max}",unitsPart:"mjesta ima za samo {max} od {n} jedinica",custom:"po mjeri, ovdje {w} × {d} m",hallMax:"najveća moguća hala u ovoj zoni gradnje",fl1:"1 etaža",fl2:"2 etaže",mod1:"1 modul",modN:"{n} modula",ca:"oko"},
+ gap:{note:"Između jedinica je pretpostavljen razmak od 3 m."},
+ plan:{street:"Ulica",limit:"Granica gradnje",note:"Shema bez geodetskog snimka. Strana prema ulici je pretpostavljena.",plot:"Parcela",field:"Zona gradnje",built:"Izgrađeno",model:"Model",none:"nema",aria:"Situacioni plan parcele s odabranim modelom"},
+ c:{title:"Šest načina gradnje",lead:"Svi objekti dolaze iz iste tvornice. Razlikuju se po tome kako se prevoze i postavljaju.",check:"Provjerite na svojoj parceli"},
+ lines:{
+  raster:{name:"Modularna kuća",code:"R14 do R170",desc:"Moduli od 5,90 × 2,40 m spajaju se vijcima jedan pored drugog, jedan iza drugog ili jedan na drugi. Tako nastaje vrtni ured od jednog modula ili porodična kuća od šest.",spec:[["Modul","5,90 × 2,40 × 2,90 m"],["Površina","14 do 170 m²"],["Zid","sendvič panel od kamene vune 50 mm, deblji po želji"],["Namjena","stanovanje, ured, smještaj"]]},
+  wing:{name:"Rasklopiva kuća",code:"F38 i F73",desc:"Kuća stiže široka 2,20 m. Na licu mjesta rasklapaju se oba bočna krila. Kupatilo, kuhinju i elektriku tvornica po želji ugrađuje unaprijed.",spec:[["F38","5,90 × 6,40 m, oko 38 m²"],["F73","11,80 × 6,20 m, oko 73 m², tri spavaće sobe"],["Zid","panel od kamene vune, 75 ili 100 mm uz doplatu"],["Namjena","vikendica, stanovanje, iznajmljivanje"]]},
+  fold:{name:"Sklopivi kontejner",code:"P15",desc:"Isporučuje se sklopljen na 40 cm i rasklapa bez zavarivanja. Deset komada stane u jedan kontejner od 40 stopa, pa je prevoz po jedinici jeftiniji.",spec:[["Dimenzije","5,90 × 2,50 × 2,47 m, oko 15 m²"],["Zid","panel od kamene vune 50 ili 75 mm"],["Pod","cementno-vlaknasta ploča s PVC oblogom"],["Namjena","gradilište, sezonski rad, skladište"]]},
+  capsule:{name:"Kuća kapsula",code:"K38 i K72D",desc:"Potpuno opremljena jedinica sa staklenom fasadom, kupatilom i centralnim upravljanjem rasvjetom i klimom. Namijenjena turističkim naseljima i glampingu.",spec:[["K38","11,50 × 3,30 × 3,20 m, oko 38 m²"],["K72D","dvije etaže, 72 m² na 38 m² tlocrta"],["Omotač","pocinčani čelični okvir, aluminijska fasada"],["Namjena","iznajmljivanje, vikendica"]]},
+  gable:{name:"Kuća od lakog čelika",code:"G, po mjeri",desc:"Stambena kuća s dvovodnim krovom od lake čelične konstrukcije, s jednom ili dvije etaže. Tlocrt tvornica crta prema Vašem planu.",spec:[["Dimenzije","prema planu"],["Konstrukcija","okvir od lakog čelika"],["Isporuka","komplet za montažu na licu mjesta"],["Namjena","stanovanje, vikendica"]]},
+  hall:{name:"Čelična hala",code:"H, po mjeri",desc:"Hala bez unutrašnjih stubova za skladište, radionicu ili proizvodnju. Raspon, visina i vrata računaju se prema opterećenju vjetrom i snijegom na Vašoj lokaciji.",spec:[["Dimenzije","prema planu"],["Konstrukcija","čelični okvir spojen vijcima"],["Omotač","trapezni lim ili izolovani paneli"],["Namjena","skladište, radionica, proizvodnja"]]}
+ },
+ p:{title:"Od plana do postavljanja",steps:[["Odaberite model","U alatu provjerite šta stane na Vašu parcelu i pošaljite nam svoj izbor."],["Dobijate ponudu","S tvornicom dogovaramo izvedbu, izolaciju i opremu i javljamo Vam cijenu s prevozom, carinom i dostavom."],["Proizvodnja u tvornici","Standardne modele tvornica, prema vlastitim navodima, proizvodi za 10 do 15 dana. Posebne izvedbe traju duže."],["Pomorski prevoz","Kontejner morem do Evrope putuje otprilike pet do osam sedmica."],["Carina i dostava","Nakon carinjenja kamion dovozi kuću do Vaše parcele. Prilaz mora biti dovoljan za kamion i kran."],["Postavljanje","Sklopivi kontejneri i rasklopive kuće najčešće stoje isti dan. Modularne kuće, kuće od lakog čelika i hale montira ekipa za nekoliko dana do nekoliko sedmica."]]},
+ q:{title:"Česta pitanja",items:[["Treba li mi građevinska dozvola?","U većini slučajeva da. U Austriji to uređuje građevinski zakon savezne pokrajine, a u Bosni i Hercegovini nadležna općina ili grad. Provjerite to u svojoj općini prije narudžbe. Za zahtjev od nas dobijate nacrte i tehničke podatke."],["Može li se u kući živjeti cijele godine?","Zavisi od izvedbe. Standardni zid ima 50 mm izolacije, što je dovoljno za vikendice, urede i smještaj radnika. Kuća u kojoj se živi cijele godine treba deblju izolaciju, bolje prozore i energetski certifikat. Prije ponude Vam kažemo koju izvedbu traži Vaša lokacija."],["Koliko košta kuća?","Cijenu navodimo u ponudi, jer je prevoz, carina i oprema znatno mijenjaju. Za ponudu su nam potrebni model, lokacija i željena izvedba."],["Šta moram pripremiti na parceli?","Temelj prema uputama tvornice, priključke za struju, vodu i kanalizaciju te prilaz za kamion i kran."],["Ko postavlja kuću?","Rasklopive kuće i sklopive kontejnere kran spušta na temelj, a zatim se rasklapaju. Za modularne kuće, kuće od lakog čelika i hale potrebna je montažna ekipa. Montažu organizujemo mi ili dobijate uputstvo za svoju građevinsku firmu."]]},
+ w:{title:"Tvornica",note:"Podaci prema navodima proizvođača.",rows:[["Lokacija","pokrajina Guangdong, Kina"],["Osnovana","2012."],["Proizvodnja","pet pogona, 120.000 m²"],["Certifikati","ISO 9001, ISO 14001, ISO 45001, CE oznaka"]]},
+ a:{title:"Pošaljite upit",lead:"Napišite nam šta planirate. Vaš izbor iz alata šalje se uz upit.",name:"Ime i prezime",mail:"E-mail (nije obavezno)",tel:"Telefon (nije obavezno)",land:"Država",lands:["Austrija","Bosna i Hercegovina","Druga država"],ort:"Mjesto",sel:"Vaš izbor",msg:"Poruka",send:"Sastavite upit",done:"Vaš upit",copy:"Kopirajte tekst",copied:"Kopirano",wa:"Pošaljite na WhatsApp",note:"WhatsApp se otvara s ovom porukom. Prije slanja je još možete izmijeniti.",eName:"Unesite ime i prezime.",eMail:"Unesite ispravnu e-mail adresu.",head:"Upit preko stranice Parcela",noSel:"Model još nije odabran.",sumPlot:"Parcela {W} × {D} m, udaljenost od međe {s} m.",sumUse:"Namjena: {u}"},
+ legal:{home:"Rasklopiva kuća 73 m²",imprint:"Impresum",privacy:"Zaštita podataka"}
+},
+en:{
+ nav:{finder:"House finder",houses:"Houses",process:"Process",faq:"Questions",cta:"Send inquiry"},
+ h1:"The house that fits your plot.",
+ lead:"Modular homes, holiday cabins, staff housing and steel halls straight from the factory. Enter your plot's dimensions and see at once which models fit on it.",
+ f:{use:"What do you need the building for?",plot:"Your plot",mode:{dims:"Width and depth",area:"Area only"},width:"Width along the street",depth:"Depth",area:"Plot area","area.note":"We assume a rectangle with sides in a 2 to 3 ratio.",setback:"Distance to the plot boundary","setback.note":"3 m is a common rule of thumb. Your municipality sets the exact value.",need:"How much floor area do you need?",units:"How many units are you planning?","units.unit":"units",style:"What do you like?",floors:"Two storeys are allowed"},
+ use:{live:"Living",holiday:"Holiday home",rent:"Rentals and glamping",work:"Staff housing and office",hall:"Hall and storage"},
+ style:{all:"Show everything",cube:"Cube",capsule:"Capsule",gable:"Pitched roof"},
+ r:{from:"from",title:"Models that fit",count:"{n} of {m} models fit your plot.",best:"Best match",onplan:"On the plan",ask:"Ask about this model","none.title":"No model fits",none:"After the boundary distances, a buildable area of {w} × {d} m remains. No model in this selection is small enough. Reduce the distance if your municipality allows it, or change the use and style.","none.neg":"With a distance of {s} m, no buildable area remains on this plot.",unitsOk:"{n} units, up to {max} possible",unitsPart:"only {max} of {n} units have room",custom:"made to measure, here {w} × {d} m",hallMax:"largest hall this buildable area allows",fl1:"1 storey",fl2:"2 storeys",mod1:"1 module",modN:"{n} modules",ca:"approx."},
+ gap:{note:"A 3 m gap between units is assumed."},
+ plan:{street:"Street",limit:"Building limit",note:"Schematic, not a survey. The street side is assumed.",plot:"Plot",field:"Buildable area",built:"Built on",model:"Model",none:"none",aria:"Site plan of the plot with the selected model"},
+ c:{title:"Six ways to build",lead:"Every building comes from the same factory. They differ in how they are shipped and set up.",check:"Check it on your plot"},
+ lines:{
+  raster:{name:"Modular house",code:"R14 to R170",desc:"Modules of 5.90 × 2.40 m are bolted side by side, end to end or on top of each other. One module makes a garden office, six make a family home.",spec:[["Module","5.90 × 2.40 × 2.90 m"],["Floor area","14 to 170 m²"],["Walls","50 mm rock wool sandwich panel, thicker on request"],["Suited to","living, office, staff housing"]]},
+  wing:{name:"Expandable house",code:"F38 and F73",desc:"The house arrives 2.20 m wide. On site both side wings fold out. The factory can fit bathroom, kitchen and wiring in advance.",spec:[["F38","5.90 × 6.40 m, approx. 38 m²"],["F73","11.80 × 6.20 m, approx. 73 m², three bedrooms"],["Walls","rock wool panel, 75 or 100 mm at extra cost"],["Suited to","holiday home, living, rentals"]]},
+  fold:{name:"Folding container",code:"P15",desc:"Ships folded to 40 cm and unfolds without welding. Ten fit into one 40-foot container, which keeps freight per unit low.",spec:[["Size","5.90 × 2.50 × 2.47 m, approx. 15 m²"],["Walls","50 or 75 mm rock wool panel"],["Floor","cement fibre board with PVC finish"],["Suited to","building sites, seasonal use, storage"]]},
+  capsule:{name:"Capsule house",code:"K38 and K72D",desc:"A fully fitted unit with glass front, bathroom and central control for lighting and climate. Made for resorts and glamping.",spec:[["K38","11.50 × 3.30 × 3.20 m, approx. 38 m²"],["K72D","two storeys, 72 m² on a 38 m² footprint"],["Shell","galvanised steel frame, aluminium cladding"],["Suited to","rentals, holiday home"]]},
+  gable:{name:"Light steel house",code:"G, made to measure",desc:"A pitched-roof home on a light steel frame, with one or two storeys. The factory draws the floor plan from your brief.",spec:[["Size","to your plan"],["Structure","light steel frame"],["Delivery","kit for assembly on site"],["Suited to","living, holiday home"]]},
+  hall:{name:"Steel hall",code:"H, made to measure",desc:"A clear-span hall for storage, a workshop or production. Span, height and doors are engineered for the wind and snow loads at your site.",spec:[["Size","to your plan"],["Structure","bolted steel frame"],["Shell","profiled sheet or insulated panels"],["Suited to","storage, workshop, production"]]}
+ },
+ p:{title:"From plan to assembly",steps:[["Choose a model","Use the house finder to see what fits your plot and send us your selection."],["Get a quote","We settle the build, insulation and fittings with the factory and give you the price including freight, customs and delivery."],["Production","By its own account the factory builds standard models in 10 to 15 days. Custom builds take longer."],["Sea freight","The container spends about five to eight weeks at sea on its way to Europe."],["Customs and delivery","After customs clearance a truck brings the house to your plot. The access road has to take a truck and a crane."],["Assembly","Folding containers and expandable houses usually stand the same day. A crew assembles modular houses, light steel houses and halls in days to weeks."]]},
+ q:{title:"Common questions",items:[["Do I need a building permit?","In most cases, yes. In Austria the building code of the federal state applies, in Bosnia and Herzegovina the responsible municipality decides. Check with your local authority before ordering. We supply the drawings and technical data for the application."],["Can you live in the house all year?","That depends on the build. The standard wall has 50 mm of insulation, which is enough for summer houses, offices and staff housing. A home lived in all year needs thicker insulation, better windows and an energy certificate. Before quoting we tell you which build your location requires."],["What does a house cost?","We state the price in the quote, because freight, customs and fittings change it considerably. For a quote we need the model, the location and the build you want."],["What do I have to prepare on site?","A foundation to the factory's specification, connections for power, water and sewage, and access for a truck and a crane."],["Who assembles the house?","Expandable houses and folding containers are set down by crane and unfolded. Modular houses, light steel houses and halls need an assembly crew. We arrange the assembly or you receive the instructions for your own builder."]]},
+ w:{title:"The factory",note:"Figures as stated by the manufacturer.",rows:[["Location","Guangdong province, China"],["Founded","2012"],["Production","five plants, 120,000 m²"],["Certificates","ISO 9001, ISO 14001, ISO 45001, CE marking"]]},
+ a:{title:"Send an inquiry",lead:"Tell us what you are planning. Your selection from the house finder is sent along.",name:"Name",mail:"Email (optional)",tel:"Phone (optional)",land:"Country",lands:["Austria","Bosnia and Herzegovina","Other country"],ort:"Town",sel:"Your selection",msg:"Message",send:"Compose inquiry",done:"Your inquiry",copy:"Copy text",copied:"Copied",wa:"Send on WhatsApp",note:"WhatsApp opens with this message. You can still edit it before sending.",eName:"Enter your name.",eMail:"Enter a valid email address.",head:"Inquiry via Parcela",noSel:"No model selected yet.",sumPlot:"Plot {W} × {D} m, boundary distance {s} m.",sumUse:"Use: {u}"},
+ legal:{home:"Expandable house 73 m²",imprint:"Legal notice",privacy:"Privacy"}
+}};
+
+/* ---------- catalogue data (footprints in metres, gross area) ---------- */
+const MODELS=[
+ {id:"r14",code:"R14",line:"raster",gx:1,gy:1,fl:1,w:5.9,d:2.4,area:14,uses:{holiday:.6,rent:.6,work:1}},
+ {id:"r28",code:"R28",line:"raster",gx:1,gy:2,fl:1,w:5.9,d:4.8,area:28,uses:{live:.6,holiday:1,rent:.8,work:1}},
+ {id:"r42",code:"R42",line:"raster",gx:1,gy:3,fl:1,w:7.2,d:5.9,area:42,uses:{live:.8,holiday:1,rent:.6,work:1}},
+ {id:"r57",code:"R57",line:"raster",gx:2,gy:2,fl:1,w:11.8,d:4.8,area:57,uses:{live:1,holiday:.8,work:1}},
+ {id:"r85",code:"R85",line:"raster",gx:2,gy:3,fl:1,w:11.8,d:7.2,area:85,uses:{live:1,holiday:.6,work:1}},
+ {id:"r57d",code:"R57D",line:"raster",gx:1,gy:2,fl:2,w:5.9,d:4.8,area:57,uses:{live:1,work:1}},
+ {id:"r85d",code:"R85D",line:"raster",gx:1,gy:3,fl:2,w:7.2,d:5.9,area:85,uses:{live:1,work:1}},
+ {id:"r113d",code:"R113D",line:"raster",gx:2,gy:2,fl:2,w:11.8,d:4.8,area:113,uses:{live:1,work:1}},
+ {id:"r170d",code:"R170D",line:"raster",gx:2,gy:3,fl:2,w:11.8,d:7.2,area:170,uses:{live:.8,work:1}},
+ {id:"f38",code:"F38",line:"wing",fl:1,w:6.4,d:5.9,area:38,uses:{live:.8,holiday:1,rent:1,work:.8}},
+ {id:"f73",code:"F73",line:"wing",fl:1,w:11.8,d:6.2,area:73,uses:{live:1,holiday:.8,rent:.6,work:.8}},
+ {id:"p15",code:"P15",line:"fold",fl:1,w:5.9,d:2.5,area:15,uses:{holiday:.4,rent:.4,work:1}},
+ {id:"k38",code:"K38",line:"capsule",fl:1,w:11.5,d:3.3,area:38,uses:{live:.6,holiday:1,rent:1}},
+ {id:"k72d",code:"K72D",line:"capsule",fl:2,w:11.5,d:3.3,area:72,uses:{live:.8,holiday:.8,rent:1}}
+];
+const CUSTOM=[
+ {id:"g",code:"G",line:"gable",uses:{live:1,holiday:.8}},
+ {id:"h",code:"H",line:"hall",uses:{hall:1}}
+];
+const STYLE={raster:"cube",wing:"cube",fold:"cube",capsule:"capsule",gable:"gable",hall:"hall"};
+const USES=["live","holiday","rent","work","hall"];
+const NEED={live:{min:30,max:200,step:5},holiday:{min:15,max:100,step:1},work:{min:14,max:200,step:2},hall:{min:100,max:3000,step:50}};
+const GAP=3;
+
+const S={lang:"de",use:"live",mode:"dims",W:20,D:30,A:600,s:3,target:{live:85,holiday:38,work:28,hall:450},units:4,style:"all",two:true,sel:null,pinned:false};
+let G={};      // geometry of the current plot
+let RES=[];    // current results
+try{const l=localStorage.getItem("parcela-lang");if(l&&T[l])S.lang=l;}catch(e){}
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function nf(v,d){ // decimal comma for German and Bosnian; without d: one decimal, dropped when it is zero
+  if(d===undefined)d=Math.abs(v-Math.round(v))<.05?0:1;
+  const t=v.toFixed(d);return S.lang==="en"?t:t.replace(".",",");
+}
+function money(n){const t=String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,S.lang==="en"?",":".");return S.lang==="en"?"€"+t:t+" €";}
+function tx(path,vars){let o=T[S.lang];for(const k of path.split("|")){o=o?o[k]:undefined;}let s=o===undefined?path:o;if(vars)for(const k in vars)s=s.split("{"+k+"}").join(vars[k]);return s;}
+function ti(key){ // dotted key from data-i18n; first segment is the group
+  const i=key.indexOf(".");if(i<0)return T[S.lang][key];
+  const g=T[S.lang][key.slice(0,i)],rest=key.slice(i+1);
+  if(g===undefined)return key;
+  if(g[rest]!==undefined)return g[rest];
+  const j=rest.indexOf(".");return j>0&&g[rest.slice(0,j)]?g[rest.slice(0,j)][rest.slice(j+1)]:key;
+}
+
+/* ---------- isometric drawings ---------- */
+const K=Math.cos(Math.PI/6);
+const pr=(x,y,z)=>[(x-y)*K,(x+y)*.5-z];
+function ext(profile,x0,x1,cap){
+  const polys=[],n=profile.length;let sy=0,sz=0;
+  for(let i=0;i<n;i++){
+    const a=profile[i],b=profile[(i+1)%n];sy+=a[0];sz+=a[1];
+    const ny=b[1]-a[1],nz=-(b[0]-a[0]);
+    if(ny+nz<=1e-9)continue;
+    const up=nz/Math.hypot(ny,nz);
+    polys.push({c:up>.95?"i-top":up>.15?"i-roof":"i-side",p:[pr(x0,a[0],a[1]),pr(x1,a[0],a[1]),pr(x1,b[0],b[1]),pr(x0,b[0],b[1])]});
+  }
+  polys.push({c:cap||"i-front",p:profile.map(q=>pr(x1,q[0],q[1]))});
+  return {depth:(x0+x1)/2+sy/n+sz/n,polys};
+}
+const box=(x0,x1,y0,y1,z0,z1)=>ext([[y0,z0],[y1,z0],[y1,z1],[y0,z1]],x0,x1);
+const onX=(x,y0,y1,z0,z1,c)=>({c,p:[pr(x,y0,z0),pr(x,y1,z0),pr(x,y1,z1),pr(x,y0,z1)]});
+const onY=(y,x0,x1,z0,z1,c)=>({c,p:[pr(x0,y,z0),pr(x1,y,z0),pr(x1,y,z1),pr(x0,y,z1)]});
+function scene(kind,o){
+  o=o||{};const sh=[];let L=0,Wd=0;
+  if(kind==="raster"){
+    const l=5.9,w=2.4,h=2.9;L=o.gx*l;Wd=o.gy*w;
+    for(let f=0;f<o.fl;f++)for(let i=0;i<o.gx;i++)for(let j=0;j<o.gy;j++){
+      const b=box(i*l,(i+1)*l,j*w,(j+1)*w,f*h,(f+1)*h);
+      if(j===o.gy-1){b.polys.push(onY((j+1)*w,i*l+.9,i*l+2.4,f*h+1,f*h+2.2,"i-glass"),onY((j+1)*w,i*l+3.5,i*l+5,f*h+1,f*h+2.2,"i-glass"));}
+      if(i===o.gx-1){b.polys.push(f===0&&j===0?onX((i+1)*l,j*w+.7,j*w+1.65,0,2.1,"i-door"):onX((i+1)*l,j*w+.55,j*w+1.85,f*h+1,f*h+2.2,"i-glass"));}
+      sh.push(b);
+    }
+  }else if(kind==="wing"){
+    L=o.len;Wd=6.4;
+    const a=box(0,L,0,2.1,0,2.3),c=box(0,L,2.1,4.3,0,2.48),b=box(0,L,4.3,6.4,0,2.3);
+    c.polys.push(onX(L,2.75,3.65,0,2.1,"i-door"));
+    b.polys.push(onX(L,4.8,5.9,1,2,"i-glass"));
+    for(let x=.9;x+1.5<L;x+=2.9)b.polys.push(onY(6.4,x,x+1.5,1,2,"i-glass"));
+    sh.push(a,c,b);
+  }else if(kind==="fold"){
+    L=5.9;Wd=6.1;
+    const b=box(0,5.9,0,2.5,0,2.47);
+    b.polys.push(onY(2.5,.9,2.4,1,2.1,"i-glass"),onX(5.9,.8,1.7,0,2.05,"i-door"));
+    sh.push(b,box(0,5.9,3.6,6.1,0,.4));
+  }else if(kind==="capsule"){
+    L=o.fl===2?13.5:11.5;Wd=3.3;
+    const prof=z=>[[.6,z],[2.7,z],[3.3,z+.6],[3.3,z+2.6],[2.7,z+3.2],[.6,z+3.2],[0,z+2.6],[0,z+.6]];
+    const glass=z=>[[.75,z+.3],[2.55,z+.3],[3,z+.75],[3,z+2.45],[2.55,z+2.9],[.75,z+2.9],[.3,z+2.45],[.3,z+.75]];
+    for(let f=0;f<o.fl;f++){
+      const x0=f*2,z=f*3.2,c=ext(prof(z),x0,x0+11.5);
+      c.polys.push({c:"i-glass",p:glass(z).map(q=>pr(x0+11.5,q[0],q[1]))},onY(3.3,x0+1.4,x0+7.6,z+1,z+2.3,"i-glass"));
+      sh.push(c);
+    }
+  }else if(kind==="gable"){
+    L=11;Wd=8;
+    const g=ext([[0,0],[8,0],[8,2.8],[4,4.7],[0,2.8]],0,11);
+    g.polys.push(onX(11,3.3,4.4,0,2.15,"i-door"),onX(11,5.3,7,1,2.2,"i-glass"),onX(11,1,2.4,1,2.2,"i-glass"));
+    for(let x=1.2;x+1.6<11;x+=3.2)g.polys.push(onY(8,x,x+1.6,1,2.2,"i-glass"));
+    sh.push(g);
+  }else if(kind==="hall"){
+    L=28;Wd=15;
+    const h=ext([[0,0],[15,0],[15,6],[7.5,7.7],[0,6]],0,28);
+    h.polys.push(onX(28,5,10,0,4.6,"i-door"),onX(28,11.6,12.7,0,2.2,"i-door"),onY(15,2,26,4.1,4.9,"i-glass"));
+    sh.push(h);
+  }else{L=11;Wd=7;}
+  const m=Math.max(L,Wd)*.09+.6;
+  sh.push({depth:-1e9,polys:[{c:"i-ground",p:[pr(-m,-m,0),pr(L+m,-m,0),pr(L+m,Wd+m,0),pr(-m,Wd+m,0)]}]});
+  sh.sort((a,b)=>a.depth-b.depth);
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,out="";
+  for(const s of sh)for(const q of s.polys){
+    out+='<polygon class="'+q.c+'" points="'+q.p.map(p=>{x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);y0=Math.min(y0,p[1]);y1=Math.max(y1,p[1]);return p[0].toFixed(2)+","+p[1].toFixed(2);}).join(" ")+'"/>';
+  }
+  const pad=.4;
+  return '<svg class="iso" viewBox="'+[x0-pad,y0-pad,x1-x0+2*pad,y1-y0+2*pad].map(v=>v.toFixed(2)).join(" ")+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">'+out+"</svg>";
+}
+const isoCache={};
+function iso(key){
+  if(isoCache[key])return isoCache[key];
+  const m=MODELS.find(x=>x.id===key);let s;
+  if(m&&m.line==="raster")s=scene("raster",m);
+  else if(key==="f38")s=scene("wing",{len:5.9});
+  else if(key==="f73")s=scene("wing",{len:11.8});
+  else if(key==="p15")s=scene("fold");
+  else if(key==="k38")s=scene("capsule",{fl:1});
+  else if(key==="k72d")s=scene("capsule",{fl:2});
+  else if(key==="g")s=scene("gable");
+  else if(key==="h")s=scene("hall");
+  else s=scene("empty");
+  return isoCache[key]=s;
+}
+const LINE_ART={raster:"r85",wing:"f73",fold:"p15",capsule:"k38",gable:"g",hall:"h"};
+const STYLE_ART={all:"empty",cube:"r28",capsule:"k38",gable:"g"};
+
+/* ---------- fitting ---------- */
+const E=1e-6;
+function geometry(){
+  let W=S.W,D=S.D;
+  if(S.mode==="area"){W=Math.sqrt(S.A/1.5);D=1.5*W;}
+  const s=S.s;return {W,D,s,We:W-2*s,De:D-2*s};
+}
+function orient(w,d,We,De){
+  const lo=Math.max(w,d),sh=Math.min(w,d);
+  if(lo<=We+E&&sh<=De+E)return{w:lo,d:sh};
+  if(sh<=We+E&&lo<=De+E)return{w:sh,d:lo};
+  return null;
+}
+function capacity(w,d,We,De){
+  if(w>We+E||d>De+E)return{n:0};
+  const c=Math.floor((We-w)/(w+GAP)+E)+1,r=Math.floor((De-d)/(d+GAP)+E)+1;
+  return{n:c*r,c,r,w,d};
+}
+function gridLayout(cap,n,g){
+  const rows=Math.ceil(n/cap.c),cols=Math.ceil(n/rows),out=[];
+  const bw=cols*cap.w+(cols-1)*GAP,bh=rows*cap.d+(rows-1)*GAP;
+  const x0=g.s+(g.We-bw)/2,y0=g.s+(g.De-bh)/2;
+  for(let i=0;i<n;i++){const r=Math.floor(i/cols),c=i%cols;out.push({x:x0+c*(cap.w+GAP),y:y0+r*(cap.d+GAP),w:cap.w,d:cap.d});}
+  return out;
+}
+const centre=(o,g)=>[{x:g.s+(g.We-o.w)/2,y:g.s+(g.De-o.d)/2,w:o.w,d:o.d}];
+const r1=v=>Math.round(v*10)/10;
+function evaluate(g){
+  const use=S.use,out=[];let total=0;
+  const styleW=line=>(S.style==="all"||use==="hall"||STYLE[line]===S.style)?1:.4;
+  for(const m of MODELS){
+    const u=m.uses[use];if(!u)continue;total++;
+    if(m.fl===2&&!S.two)continue;
+    if(use==="rent"){
+      const a=capacity(Math.max(m.w,m.d),Math.min(m.w,m.d),g.We,g.De),b=capacity(Math.min(m.w,m.d),Math.max(m.w,m.d),g.We,g.De);
+      const cap=b.n>a.n?b:a;if(!cap.n)continue;
+      const n=Math.min(S.units,cap.n);
+      out.push({m,code:m.code,line:m.line,w:cap.w,d:cap.d,area:m.area,fl:m.fl,n,max:cap.n,bld:gridLayout(cap,n,g),score:100*(.45*Math.min(1,cap.n/S.units)+.35*u+.2*styleW(m.line))});
+    }else{
+      const o=orient(m.w,m.d,g.We,g.De);if(!o)continue;
+      const t=S.target[use],as=1-Math.min(1,Math.abs(m.area-t)/t);
+      out.push({m,code:m.code,line:m.line,w:o.w,d:o.d,area:m.area,fl:m.fl,n:1,bld:centre(o,g),score:100*(.45*as+.35*u+.2*styleW(m.line))-(m.fl===2?1:0)});
+    }
+  }
+  for(const c of CUSTOM){
+    const u=c.uses[use];if(!u)continue;total++;
+    if(c.line==="gable"){
+      const t=S.target[use];let fit=null;
+      for(const fl of (S.two?[1,2]:[1])){
+        const fa=t/fl;let w=Math.sqrt(fa*1.4),d=fa/w;
+        if(d>9){d=9;w=fa/d;}
+        let o=orient(w,d,g.We,g.De);
+        if(!o&&g.We>=5&&g.De>=5){ // squeeze into the buildable area, keep the floor area
+          const w2=Math.min(g.We,w),d2=fa/w2;
+          if(d2<=g.De+E&&d2>=5)o={w:w2,d:d2};
+          else{const d3=Math.min(g.De,w),w3=fa/d3;if(w3<=g.We+E&&w3>=5)o={w:w3,d:d3};}
+        }
+        if(o&&Math.min(o.w,o.d)>=5-E){fit={o:{w:r1(o.w),d:r1(o.d)},fl};break;}
+      }
+      if(!fit)continue;
+      out.push({custom:true,code:c.code,line:c.line,w:fit.o.w,d:fit.o.d,area:Math.round(t),fl:fit.fl,n:1,bld:centre(fit.o,g),score:100*(.45*.85+.35*u+.2*styleW(c.line))});
+    }else{
+      if(g.We<8||g.De<8)continue;
+      const t=S.target.hall;let w=Math.min(g.We,Math.sqrt(t*1.6)),d=t/w;
+      if(d>g.De){d=g.De;w=Math.min(g.We,t/d);}
+      w=Math.floor(w*2+E)/2;d=Math.min(Math.floor(g.De*2+E)/2,Math.ceil(t/w*2-E)/2);
+      const got=w*d,o=orient(w,d,g.We,g.De)||{w,d};
+      out.push({custom:true,code:c.code,line:c.line,w:o.w,d:o.d,area:Math.round(got),fl:1,n:1,partial:got<t*.97,bld:centre(o,g),score:100*Math.min(1,got/t)});
+    }
+  }
+  out.sort((a,b)=>b.score-a.score);
+  return{list:out,total};
+}
+
+/* ---------- plan drawing ---------- */
+function dimH(x1,x2,y,label,below){
+  const m=(x1+x2)/2,q=v=>v.toFixed(1);
+  return '<g class="dim"><line x1="'+q(x1)+'" y1="'+q(y)+'" x2="'+q(x2)+'" y2="'+q(y)+'"/>'+
+    '<line x1="'+q(x1-4)+'" y1="'+q(y+4)+'" x2="'+q(x1+4)+'" y2="'+q(y-4)+'"/><line x1="'+q(x2-4)+'" y1="'+q(y+4)+'" x2="'+q(x2+4)+'" y2="'+q(y-4)+'"/>'+
+    '<text class="p-t" x="'+q(m)+'" y="'+q(below?y+15:y-6)+'" text-anchor="middle">'+label+"</text></g>";
+}
+function dimV(x,y1,y2,label,right){
+  const m=(y1+y2)/2,t0=right?x+15:x-7,q=v=>v.toFixed(1);
+  return '<g class="dim"><line x1="'+q(x)+'" y1="'+q(y1)+'" x2="'+q(x)+'" y2="'+q(y2)+'"/>'+
+    '<line x1="'+q(x-4)+'" y1="'+q(y1+4)+'" x2="'+q(x+4)+'" y2="'+q(y1-4)+'"/><line x1="'+q(x-4)+'" y1="'+q(y2+4)+'" x2="'+q(x+4)+'" y2="'+q(y2-4)+'"/>'+
+    '<text class="p-t" x="'+q(t0)+'" y="'+q(m)+'" text-anchor="middle" transform="rotate(-90 '+q(t0)+" "+q(m)+')">'+label+"</text></g>";
+}
+function drawPlan(){
+  const host=$("#plan"),cw=host.clientWidth||760,small=cw<540;
+  const vw=small?430:780,vh=small?480:590,pad=small?{l:50,r:22,t:44,b:84}:{l:88,r:48,t:58,b:98};
+  const g=G,sel=RES.find(r=>r.id===S.sel);
+  const k=Math.min((vw-pad.l-pad.r)/g.W,(vh-pad.t-pad.b)/g.D);
+  const pw=g.W*k,ph=g.D*k,ox=pad.l+(vw-pad.l-pad.r-pw)/2,oy=pad.t+(vh-pad.t-pad.b-ph)/2;
+  const f=v=>v.toFixed(1);
+  let o='<svg viewBox="0 0 '+vw+" "+vh+'" role="img" aria-label="'+esc(tx("plan|aria"))+'"><defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="p-hatch" x1="0" y1="0" x2="0" y2="7"/></pattern></defs>';
+  // street
+  o+='<rect class="p-street" x="'+f(ox-16)+'" y="'+f(oy+ph+9)+'" width="'+f(pw+32)+'" height="20" opacity=".55"/><text class="p-t2" x="'+f(ox+pw/2)+'" y="'+f(oy+ph+23)+'" text-anchor="middle">'+esc(tx("plan|street"))+"</text>";
+  // plot
+  o+='<rect class="p-plot" x="'+f(ox)+'" y="'+f(oy)+'" width="'+f(pw)+'" height="'+f(ph)+'"/>';
+  // building limit
+  if(g.We>0&&g.De>0&&g.s>0){
+    o+='<rect class="p-limit" x="'+f(ox+g.s*k)+'" y="'+f(oy+g.s*k)+'" width="'+f(g.We*k)+'" height="'+f(g.De*k)+'"/>';
+    if(g.We*k>96&&g.s*k>9)o+='<text class="p-limit-t" x="'+f(ox+g.s*k+5)+'" y="'+f(oy+g.s*k+14)+'">'+esc(tx("plan|limit"))+"</text>";
+    if(g.s*k>30)o+=dimH(ox,ox+g.s*k,oy+ph*.5,nf(g.s,2),false);
+  }
+  // buildings
+  if(sel){
+    for(const b of sel.bld){
+      const x=ox+b.x*k,y=oy+b.y*k,w=b.w*k,h=b.d*k;
+      o+='<g class="p-b"><rect class="p-build-bg" x="'+f(x)+'" y="'+f(y)+'" width="'+f(w)+'" height="'+f(h)+'"/><rect class="p-build" fill="url(#hatch)" x="'+f(x)+'" y="'+f(y)+'" width="'+f(w)+'" height="'+f(h)+'"/>';
+      if(w>40&&h>20)o+='<text class="p-code" x="'+f(x+w/2)+'" y="'+f(y+h/2+5)+'" text-anchor="middle">'+esc(sel.code)+"</text>";
+      o+="</g>";
+    }
+    if(sel.bld.length===1){
+      const b=sel.bld[0],x=ox+b.x*k,y=oy+b.y*k,w=b.w*k,h=b.d*k;
+      if(oy+ph-(y+h)>34&&w>44)o+=dimH(x,x+w,y+h+13,nf(b.w,2),true);
+      if(ox+pw-(x+w)>34&&h>44)o+=dimV(x+w+13,y,y+h,nf(b.d,2),true);
+    }
+  }
+  // plot dimensions
+  o+=dimH(ox,ox+pw,oy-(small?18:24),nf(g.W,2),false);
+  o+=dimV(ox-(small?20:28),oy,oy+ph,nf(g.D,2),false);
+  // scale bar
+  const want=small?90:140;let Lb=1;for(const c of [1,2,5,10,20,50,100,200])if(c*k<=want)Lb=c;
+  const bx=small?16:24,by=vh-(small?26:30),bl=Lb*k;
+  o+='<rect class="p-bar-a" x="'+bx+'" y="'+by+'" width="'+f(bl/2)+'" height="6"/><rect class="p-bar-b" x="'+f(bx+bl/2)+'" y="'+by+'" width="'+f(bl/2)+'" height="6"/>'+
+     '<text class="p-t2" x="'+bx+'" y="'+(by+20)+'">0</text><text class="p-t2" x="'+f(bx+bl/2)+'" y="'+(by+20)+'" text-anchor="middle">'+nf(Lb/2)+'</text><text class="p-t2" x="'+f(bx+bl)+'" y="'+(by+20)+'" text-anchor="middle">'+Lb+" m</text>";
+  o+="</svg>";
+  host.innerHTML=o;
+  // title block
+  const built=sel?sel.bld.reduce((a,b)=>a+b.w*b.d,0):0;
+  const cells=[
+    [tx("plan|plot"),nf(g.W)+" × "+nf(g.D)+"\u00a0m, "+nf(g.W*g.D,0)+"\u00a0m²"],
+    [tx("plan|field"),g.We>0&&g.De>0?nf(g.We)+" × "+nf(g.De)+"\u00a0m":tx("plan|none")],
+    [tx("plan|built"),sel?nf(built,0)+"\u00a0m², "+nf(100*built/(g.W*g.D),0)+"\u00a0%":"0\u00a0m²"],
+    [tx("plan|model"),sel?sel.code+" "+tx("lines|"+sel.line+"|name")+(sel.n>1?" × "+sel.n:""):tx("plan|none")]
+  ];
+  $("#tb").innerHTML=cells.map(c=>"<div><dt>"+esc(c[0])+"</dt><dd>"+esc(c[1])+"</dd></div>").join("");
+}
+
+/* ---------- results ---------- */
+function describe(r){
+  const dims=nf(r.w,1)+" × "+nf(r.d,1)+"\u00a0m";
+  const fl=tx(r.fl===2?"r|fl2":"r|fl1");
+  let a=fl;
+  if(r.line==="raster"){const n=r.m.gx*r.m.gy*r.m.fl;a=(n===1?tx("r|mod1"):tx("r|modN",{n}))+", "+fl;}
+  let b;
+  if(r.custom)b=tx("r|custom",{w:nf(r.w),d:nf(r.d)})+", "+nf(r.area,0)+"\u00a0m²";
+  else b=dims+", "+tx("r|ca")+" "+r.area+"\u00a0m²";
+  const pp=CFG.prices&&CFG.prices[r.code.toLowerCase()];if(pp)b+=", "+tx("r|from")+" "+money(pp);
+  return{a,b};
+}
+function renderResults(){
+  const g=G,ev=evaluate(g);
+  RES=ev.list.slice(0,5).map(r=>Object.assign(r,{id:r.code.toLowerCase()}));
+  if(!S.pinned||!RES.find(r=>r.id===S.sel)){S.sel=RES.length?RES[0].id:null;S.pinned=false;}
+  const list=$("#res-list");
+  $("#res-count").textContent=ev.total?tx("r|count",{n:ev.list.length,m:ev.total}):"";
+  if(!RES.length){
+    const msg=(g.We<=0||g.De<=0)?tx("r|none.neg",{s:nf(g.s)}):tx("r|none",{w:nf(g.We),d:nf(g.De)});
+    list.innerHTML='<li class="empty"><b>'+esc(tx("r|none.title"))+"</b><span>"+esc(msg)+"</span></li>";
+  }else{
+    list.innerHTML=RES.map((r,i)=>{
+      const d=describe(r),on=r.id===S.sel;let extra="";
+      if(S.use==="rent")extra='<span class="l2'+(r.max<S.units?" warn":"")+'">'+esc(r.max<S.units?tx("r|unitsPart",{max:r.max,n:S.units}):tx("r|unitsOk",{n:r.n,max:r.max}))+"</span>";
+      if(r.partial)extra='<span class="l2 warn">'+esc(tx("r|hallMax"))+"</span>";
+      return '<li><button type="button" class="res" data-id="'+r.id+'" aria-pressed="'+on+'">'+iso(r.id)+
+        "<span><b>"+esc(r.code)+" "+esc(tx("lines|"+r.line+"|name"))+'</b><span class="l2">'+esc(d.b)+'</span><span class="l2">'+esc(d.a)+"</span>"+extra+"</span>"+
+        '<span class="res-meta">'+(i===0?'<span class="tag best">'+esc(tx("r|best"))+"</span>":"")+(on?'<span class="tag">'+esc(tx("r|onplan"))+"</span>":"")+"</span></button></li>";
+    }).join("");
+  }
+  $("#res-foot").hidden=!RES.length;
+  $("#gap-note").hidden=S.use!=="rent";
+  drawPlan();
+  renderSelection();
+}
+function selectionText(){
+  const g=G,sel=RES.find(r=>r.id===S.sel),lines=[];
+  if(sel){const d=describe(sel);lines.push(sel.code+" "+tx("lines|"+sel.line+"|name")+(sel.n>1?" × "+sel.n:"")+", "+d.b+", "+d.a);}
+  else lines.push(tx("a|noSel"));
+  lines.push(tx("a|sumPlot",{W:nf(g.W),D:nf(g.D),s:nf(g.s)}));
+  lines.push(tx("a|sumUse",{u:tx("use|"+S.use)}));
+  return lines;
+}
+function renderSelection(){$("#selbox").innerHTML=selectionText().map(l=>"<span>"+esc(l)+"</span>").join("");}
+
+/* ---------- static, translated parts ---------- */
+function renderStatic(){
+  document.documentElement.lang=S.lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const v=ti(el.getAttribute("data-i18n"));if(typeof v==="string")el.textContent=v;});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===S.lang)));
+  $("#use-chips").innerHTML=USES.map(u=>'<label class="chip"><input type="radio" name="use" id="use-'+u+'" value="'+u+'"'+(S.use===u?" checked":"")+"><span>"+esc(tx("use|"+u))+"</span></label>").join("");
+  $("#style-tiles").innerHTML=["all","cube","capsule","gable"].map(s=>'<label class="tile"><input type="radio" name="style" id="style-'+s+'" value="'+s+'"'+(S.style===s?" checked":"")+'><span class="box">'+iso(STYLE_ART[s])+"<span>"+esc(tx("style|"+s))+"</span></span></label>").join("");
+  $("#cat").innerHTML=Object.keys(LINE_ART).map(l=>{
+    const t=T[S.lang].lines[l];
+    return "<article><figure>"+iso(LINE_ART[l])+'</figure><div class="head"><h3>'+esc(t.name)+'</h3><span class="code">'+esc(t.code)+"</span></div><p>"+esc(t.desc)+'</p><dl class="spec">'+t.spec.map(s=>"<dt>"+esc(s[0])+"</dt><dd>"+esc(s[1])+"</dd>").join("")+'</dl><div><button type="button" class="linkbtn" data-line="'+l+'">'+esc(tx("c|check"))+"</button></div></article>";
+  }).join("");
+  $("#steps").innerHTML=T[S.lang].p.steps.map(s=>"<li><h3>"+esc(s[0])+"</h3><p>"+esc(s[1])+"</p></li>").join("");
+  $("#faq").innerHTML=T[S.lang].q.items.map((q,i)=>"<details"+(i===0?" open":"")+"><summary>"+esc(q[0])+"</summary><p>"+esc(q[1])+"</p></details>").join("");
+  $("#works").innerHTML=T[S.lang].w.rows.map(r=>"<dt>"+esc(r[0])+"</dt><dd>"+esc(r[1])+"</dd>").join("");
+  const land=$("#a-land"),keep=land.selectedIndex>0?land.selectedIndex:0;
+  land.innerHTML=T[S.lang].a.lands.map(x=>"<option>"+esc(x)+"</option>").join("");land.selectedIndex=keep;
+  syncControls();
+}
+function syncControls(){
+  const hall=S.use==="hall",rent=S.use==="rent";
+  $("#style-set").hidden=hall;
+  $("#area-need").hidden=rent;$("#units-need").hidden=!rent;
+  $("#need-leg").textContent=tx(rent?"f|units":"f|need");
+  if(!rent){const n=NEED[S.use],el=$("#need");el.min=n.min;el.max=n.max;el.step=n.step;el.value=S.target[S.use];$("#need-out").textContent=nf(S.target[S.use],0)+" m²";}
+  $("#dims-row").hidden=S.mode!=="dims";$("#area-row").hidden=S.mode!=="area";
+}
+function update(){G=geometry();renderResults();}
+
+/* ---------- events ---------- */
+const num=(el,lo,hi,fb)=>{const v=parseFloat(String(el.value).replace(",","."));return isFinite(v)?Math.min(hi,Math.max(lo,v)):fb;};
+document.addEventListener("change",e=>{
+  const t=e.target;
+  if(t.name==="use"){S.use=t.value;S.pinned=false;syncControls();update();}
+  else if(t.name==="style"){S.style=t.value;update();}
+  else if(t.name==="mode"){S.mode=t.value;if(S.mode==="area"){S.A=Math.round(S.W*S.D);$("#plot-a").value=S.A;}syncControls();update();}
+  else if(t.id==="two"){S.two=t.checked;update();}
+});
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.id==="plot-w"){S.W=num(t,4,300,S.W);update();}
+  else if(t.id==="plot-d"){S.D=num(t,4,300,S.D);update();}
+  else if(t.id==="plot-a"){S.A=num(t,20,90000,S.A);update();}
+  else if(t.id==="setback"){S.s=num(t,0,30,S.s);update();}
+  else if(t.id==="units"){S.units=Math.round(num(t,1,60,S.units));update();}
+  else if(t.id==="need"){S.target[S.use]=parseFloat(t.value);$("#need-out").textContent=nf(S.target[S.use],0)+" m²";update();}
+});
+function go(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"});}
+document.addEventListener("click",e=>{
+  const res=e.target.closest(".res");
+  if(res){S.sel=res.dataset.id;S.pinned=true;renderResults();return;}
+  const lb=e.target.closest("[data-lang]");
+  if(lb){S.lang=lb.dataset.lang;try{localStorage.setItem("parcela-lang",S.lang);}catch(err){}renderStatic();update();if(!$("#done").hidden)compose();return;}
+  const ln=e.target.closest("[data-line]");
+  if(ln){
+    const l=ln.dataset.line;
+    if(l==="hall")S.use="hall";
+    else{const st=STYLE[l];S.style=st;if(S.use==="hall")S.use="live";
+      const c=MODELS.concat(CUSTOM).filter(m=>m.line===l);
+      if(!c.some(m=>m.uses[S.use]))S.use=l==="fold"?"work":l==="capsule"?"rent":"live";}
+    S.pinned=false;renderStatic();update();
+    const hit=RES.find(r=>r.line===l);if(hit){S.sel=hit.id;S.pinned=true;renderResults();}
+    go("finder");return;
+  }
+  if(e.target.id==="ask"){go("anfrage");return;}
+  if(e.target.id==="copy"){
+    const txt=$("#done-text").textContent,btn=e.target,ok=()=>{btn.textContent=tx("a|copied");setTimeout(()=>{btn.textContent=tx("a|copy");},1800);};
+    const fb=()=>{const r=document.createRange();r.selectNodeContents($("#done-text"));const s=getSelection();s.removeAllRanges();s.addRange(r);};
+    try{navigator.clipboard.writeText(txt).then(ok,fb);}catch(err){fb();}
+  }
+});
+function compose(){
+  const a=T[S.lang].a,v=id=>$(id).value.trim();
+  const plain=s=>s.replace(/\s*\(.*\)/,""),rows=[a.head,"",a.name+": "+v("#a-name")];
+  if(v("#a-mail"))rows.push(plain(a.mail)+": "+v("#a-mail"));
+  if(v("#a-tel"))rows.push(plain(a.tel)+": "+v("#a-tel"));
+  rows.push(a.land+": "+$("#a-land").value);
+  if(v("#a-ort"))rows.push(a.ort+": "+v("#a-ort"));
+  rows.push("",a.sel+":");selectionText().forEach(l=>rows.push(l));
+  if(v("#a-msg"))rows.push("",a.msg+":",v("#a-msg"));
+  $("#done-text").textContent=rows.join("\n");
+  $("#wa-send").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent(rows.join("\n"));
+}
+$("#form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const a=T[S.lang].a,name=$("#a-name").value.trim(),mail=$("#a-mail").value.trim();
+  const okN=name.length>1,okM=mail===""||/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail);
+  $("#e-name").hidden=okN;$("#e-name").textContent=okN?"":a.eName;
+  $("#e-mail").hidden=okM;$("#e-mail").textContent=okM?"":a.eMail;
+  if(!okN){$("#a-name").focus();return;}
+  if(!okM){$("#a-mail").focus();return;}
+  compose();$("#done").hidden=false;go("done");
+});
+let rt;
+if(window.ResizeObserver)new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(drawPlan,120);}).observe($("#plan"));
+
+renderStatic();update();
+})();
+</script>
+</body>
+</html>

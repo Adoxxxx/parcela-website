@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Impressum und Datenschutz | Parcela</title>
+<meta name="description" content="Impressum und Datenschutzerklärung der MAS Solutions Group LLC für das Angebot Parcela.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Impressum und Datenschutz | Parcela">
+<meta property="og:description" content="Impressum und Datenschutzerklärung der MAS Solutions Group LLC für das Angebot Parcela.">
+<meta name="theme-color" content="#15262B">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{color-scheme:light}
+[hidden]{display:none!important}
+/* Layout: one reading column, 68ch. Company facts as a two-column list, privacy as short titled paragraphs. */
+:root{
+  --paper:#ECEFEA; --sheet:#F8F9F5; --ink:#15262B; --ink-2:#4A5C60; --line:#C2CBC6;
+  --build:#C8341C; --lot:#DCE6D2; --limit:#2A6C88;
+  --font-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-data:"Barlow Semi Condensed","DIN Alternate","Arial Narrow",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+    --build:#FF6B4A; --lot:#1B3127; --limit:#73B9D6; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1B1E; --sheet:#152529; --ink:#E4EBE6; --ink-2:#9BAEAC; --line:#2D4146;
+  --build:#FF6B4A; --lot:#1B3127; --limit:#73B9D6; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.6 var(--font-body);-webkit-text-size-adjust:100%}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--font-display);font-stretch:125%;letter-spacing:-.015em;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:720}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:680}
+h3{font-size:1.1rem;font-weight:650;font-stretch:112%}
+p{margin:0}
+a{color:inherit;text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--limit);outline-offset:2px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-stretch:125%;font-weight:750;font-size:1.3rem;letter-spacing:-.02em}
+.brand svg{width:28px;height:28px;flex:none}
+.lang{display:flex;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
+.lang button{font:500 .88rem var(--font-data);background:transparent;color:var(--ink);border:0;padding:7px 10px;cursor:pointer}
+.lang button + button{border-left:1px solid var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+main{display:grid;gap:clamp(40px,6vw,72px);padding-block:clamp(20px,4vw,48px) clamp(48px,7vw,88px)}
+section{display:grid;gap:22px;max-width:68ch}
+.sub{color:var(--ink-2)}
+.facts{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border-top:1px solid var(--ink)}
+.facts dt,.facts dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--ink-2);padding-right:22px}
+.facts dd{overflow-wrap:anywhere}
+@media (max-width:560px){.facts{grid-template-columns:minmax(0,1fr)}.facts dt{border-bottom:0;padding-bottom:0}.facts dd{padding-top:2px}}
+.block{display:grid;gap:6px}
+.block p{color:var(--ink-2)}
+footer{border-top:1px solid var(--line);padding-block:24px 30px;color:var(--ink-2);font-size:.9rem}
+.legal{display:flex;flex-wrap:wrap;gap:6px 22px}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../" aria-label="Parcela">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" fill="var(--lot)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="6 2 1.5 2"/><rect x="8" y="10" width="13" height="9" fill="var(--build)"/></svg>
+    Parcela
+  </a>
+  <div class="lang" role="group" aria-label="Sprache, jezik, language">
+    <button type="button" data-lang="de" aria-pressed="true">DE</button>
+    <button type="button" data-lang="bs" aria-pressed="false">BS</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+<main class="wrap">
+  <section id="impressum">
+    <h1 id="h-imprint">Impressum</h1>
+    <p class="sub" id="imprint-sub"></p>
+    <dl class="facts" id="facts"></dl>
+    <div class="block" id="imprint-notes"></div>
+  </section>
+  <section id="datenschutz">
+    <h2 id="h-privacy">Datenschutzerklärung</h2>
+    <p class="sub" id="privacy-sub"></p>
+    <div id="privacy" style="display:grid;gap:22px"></div>
+  </section>
+</main>
+<footer><div class="wrap legal"><span>© 2026 MAS Solutions Group LLC</span><a href="../" id="l-home">Ausklapphaus 73 m²</a><a href="../modelle/" id="l-models">Alle Modelle</a></div></footer>
+
+<script>
+(function(){
+"use strict";
+// Firmendaten: hier ändern, wenn sich etwas ändert.
+const F={
+  name:"MAS Solutions Group LLC",
+  addr:"3833 Powerline Rd, Suite 601-P, Fort Lauderdale, FL 33309",
+  reg:"L25000163181",
+  person:"Adnan Mustedanagic",
+  mail:"office@massolutions.io"
+};
+const GH="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement";
+const WAP="https://www.whatsapp.com/legal/privacy-policy-eea";
+const T={
+de:{
+ imprint:"Impressum",sub:"Angaben nach § 5 ECG und § 14 UGB, Offenlegung nach § 25 Mediengesetz",
+ facts:[["Medieninhaber und Diensteanbieter",F.name],["Rechtsform","Limited Liability Company (LLC) nach dem Recht des US-Bundesstaates Florida"],["Anschrift",F.addr+", USA"],["Registernummer",F.reg+" (Florida Department of State, Division of Corporations)"],["Vertreten durch",F.person+", Manager"],["Eigentümer",F.person],["E-Mail","@mail"],["Unternehmensgegenstand","Vermittlung und Verkauf von Modul- und Fertighäusern"],["Grundlegende Richtung","Information über Modul- und Fertighäuser, die unter dem Namen Parcela angeboten werden"]],
+ notes:["Parcela ist ein Angebot der "+F.name+".","Bilder und Videos auf dieser Website sind KI-Visualisierungen. Die Zeichnungen der Häuser sind schematisch."],
+ privacy:"Datenschutzerklärung",psub:"Stand: Oktober 2026",
+ p:[["Verantwortlicher",F.name+", "+F.addr+", USA. E-Mail: @mail"],
+  ["Aufruf der Website","Diese Website liegt auf GitHub Pages, einem Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub technisch notwendige Daten, darunter Ihre IP-Adresse, Angaben zu Browser und Gerät sowie die aufgerufene Seite. Das ist nötig, um die Seite auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO). GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Näheres steht in der @gh.","Datenschutzerklärung von GitHub"],
+  ["Keine Cookies, keine Auswertung","Diese Website setzt keine Cookies und keine Analyse- oder Werbedienste ein. Schriften, Bilder und Videos werden von dieser Website selbst geladen, nicht von Dritten. Die gewählte Sprache wird im Speicher Ihres Browsers abgelegt und nicht an uns übertragen."],
+  ["Grundstücks-Check und Haus-Finder","Die Maße, die Sie eingeben, werden nur in Ihrem Browser verarbeitet. Sie erreichen uns erst, wenn Sie eine Nachricht abschicken."],
+  ["Kontakt über WhatsApp","Tippen Sie auf einen WhatsApp-Knopf, öffnet sich WhatsApp, ein Dienst der WhatsApp Ireland Limited. Erst dann werden Daten an WhatsApp übertragen. Wir verarbeiten Ihre Telefonnummer, Ihren Profilnamen und den Inhalt Ihrer Nachricht, um Ihre Anfrage zu beantworten und ein Angebot zu erstellen (Art. 6 Abs. 1 lit. b DSGVO). Wir löschen die Daten, sobald sie dafür nicht mehr gebraucht werden und keine gesetzliche Aufbewahrungspflicht besteht. Wenn Sie WhatsApp nicht nutzen möchten, schreiben Sie uns per E-Mail. Näheres steht in der @wa.","Datenschutzrichtlinie von WhatsApp"],
+  ["Kontakt per E-Mail","Schreiben Sie uns per E-Mail, verarbeiten wir Ihre Angaben zum selben Zweck und auf derselben Rechtsgrundlage."],
+  ["Ihre Rechte","Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Schreiben Sie dafür an @mail. Sie können sich außerdem bei einer Aufsichtsbehörde beschweren, in Österreich bei der Datenschutzbehörde (dsb.gv.at)."]],
+ home:"Ausklapphaus 73 m²",models:"Alle Modelle",title:"Impressum und Datenschutz | Parcela"
+},
+bs:{
+ imprint:"Impresum",sub:"Podaci prema § 5 ECG i § 14 UGB, objava prema § 25 austrijskog Zakona o medijima",
+ facts:[["Vlasnik medija i pružalac usluge",F.name],["Pravni oblik","Limited Liability Company (LLC) prema pravu savezne države Florida, SAD"],["Adresa",F.addr+", SAD"],["Registarski broj",F.reg+" (Florida Department of State, Division of Corporations)"],["Zastupa",F.person+", Manager"],["Vlasnik",F.person],["E-mail","@mail"],["Djelatnost","Posredovanje i prodaja modularnih i montažnih kuća"],["Osnovno usmjerenje","Informacije o modularnim i montažnim kućama koje se nude pod imenom Parcela"]],
+ notes:["Parcela je ponuda kompanije "+F.name+".","Slike i video snimci na ovoj stranici su AI vizualizacije. Crteži kuća su shematski."],
+ privacy:"Zaštita podataka",psub:"Stanje: oktobar 2026.",
+ p:[["Odgovoran za obradu",F.name+", "+F.addr+", SAD. E-mail: @mail"],
+  ["Posjeta stranici","Ova stranica se nalazi na servisu GitHub Pages kompanije GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, SAD. Pri otvaranju stranice GitHub obrađuje tehnički neophodne podatke, među njima Vašu IP adresu, podatke o pregledniku i uređaju te otvorenu stranicu. To je potrebno da bi se stranica isporučila i zaštitila od zloupotrebe (čl. 6 st. 1 tač. f GDPR-a). GitHub je certificiran prema okviru EU-US Data Privacy Framework. Više piše u dokumentu @gh.","izjava o privatnosti kompanije GitHub"],
+  ["Bez kolačića i bez praćenja","Ova stranica ne koristi kolačiće ni servise za analizu ili oglašavanje. Fontovi, slike i video snimci učitavaju se sa same stranice, a ne od trećih strana. Odabrani jezik čuva se u memoriji Vašeg preglednika i ne prenosi se nama."],
+  ["Provjera parcele i pretraga kuća","Mjere koje unesete obrađuju se samo u Vašem pregledniku. Do nas stižu tek kada pošaljete poruku."],
+  ["Kontakt preko WhatsAppa","Kad dodirnete dugme za WhatsApp, otvara se WhatsApp, servis kompanije WhatsApp Ireland Limited. Tek tada se podaci prenose WhatsAppu. Vaš broj telefona, ime profila i sadržaj poruke obrađujemo da bismo odgovorili na upit i pripremili ponudu (čl. 6 st. 1 tač. b GDPR-a). Podatke brišemo čim za to više nisu potrebni i kada ne postoji zakonska obaveza čuvanja. Ako ne želite koristiti WhatsApp, pišite nam e-mailom. Više piše u dokumentu @wa.","pravila o privatnosti WhatsAppa"],
+  ["Kontakt e-mailom","Ako nam pišete e-mailom, Vaše podatke obrađujemo u istu svrhu i po istom pravnom osnovu."],
+  ["Vaša prava","Imate pravo na pristup, ispravku, brisanje, ograničenje obrade, prenosivost podataka i prigovor. Za to pišite na @mail. Možete se žaliti i nadzornom organu, u Austriji je to Datenschutzbehörde (dsb.gv.at)."]],
+ home:"Rasklopiva kuća 73 m²",models:"Svi modeli",title:"Impresum i zaštita podataka | Parcela"
+},
+en:{
+ imprint:"Legal notice",sub:"Information under § 5 ECG and § 14 UGB, disclosure under § 25 of the Austrian Media Act",
+ facts:[["Media owner and service provider",F.name],["Legal form","Limited Liability Company (LLC) under the law of the State of Florida, USA"],["Address",F.addr+", USA"],["Registration number",F.reg+" (Florida Department of State, Division of Corporations)"],["Represented by",F.person+", Manager"],["Owner",F.person],["Email","@mail"],["Business purpose","Brokerage and sale of modular and prefabricated houses"],["Editorial line","Information about the modular and prefabricated houses offered under the name Parcela"]],
+ notes:["Parcela is an offer of "+F.name+".","Images and videos on this website are AI visualisations. The drawings of the houses are schematic."],
+ privacy:"Privacy policy",psub:"As of October 2026",
+ p:[["Controller",F.name+", "+F.addr+", USA. Email: @mail"],
+  ["Visiting the website","This website is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA. When you open it, GitHub processes technically necessary data, including your IP address, browser and device details and the page requested. This is needed to deliver the site and protect it against misuse (Art. 6(1)(f) GDPR). GitHub is certified under the EU-US Data Privacy Framework. Details are in the @gh.","GitHub privacy statement"],
+  ["No cookies, no tracking","This website uses no cookies and no analytics or advertising services. Fonts, images and videos are loaded from this website itself, not from third parties. The language you choose is kept in your browser's storage and is not sent to us."],
+  ["Plot check and house finder","The measurements you enter are processed in your browser only. They reach us only when you send a message."],
+  ["Contact via WhatsApp","When you tap a WhatsApp button, WhatsApp opens, a service of WhatsApp Ireland Limited. Only then is data transferred to WhatsApp. We process your phone number, profile name and the content of your message to answer your inquiry and prepare a quote (Art. 6(1)(b) GDPR). We delete the data once it is no longer needed for this and no legal retention duty applies. If you prefer not to use WhatsApp, write to us by email. Details are in the @wa.","WhatsApp privacy policy"],
+  ["Contact by email","If you write to us by email, we process your details for the same purpose and on the same legal basis."],
+  ["Your rights","You have the right to access, rectification, erasure, restriction of processing, data portability and objection. To use them, write to @mail. You can also complain to a supervisory authority; in Austria this is the Datenschutzbehörde (dsb.gv.at)."]],
+ home:"Expandable house 73 m²",models:"All models",title:"Legal notice and privacy | Parcela"
+}};
+let lang="de";
+try{const l=localStorage.getItem("parcela-lang");if(l&&T[l])lang=l;}catch(e){}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mail='<a href="mailto:'+F.mail+'">'+F.mail+"</a>";
+// escape first, then put the links in
+const rich=(s,label)=>esc(s).split("@mail").join(mail)
+  .split("@gh").join('<a href="'+GH+'" target="_blank" rel="noopener">'+esc(label||"")+"</a>")
+  .split("@wa").join('<a href="'+WAP+'" target="_blank" rel="noopener">'+esc(label||"")+"</a>");
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;document.title=t.title;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)));
+  $("#h-imprint").textContent=t.imprint;$("#imprint-sub").textContent=t.sub;
+  $("#facts").innerHTML=t.facts.map(r=>"<dt>"+esc(r[0])+"</dt><dd>"+rich(r[1])+"</dd>").join("");
+  $("#imprint-notes").innerHTML=t.notes.map(n=>"<p>"+esc(n)+"</p>").join("");
+  $("#h-privacy").textContent=t.privacy;$("#privacy-sub").textContent=t.psub;
+  $("#privacy").innerHTML=t.p.map(r=>'<div class="block"><h3>'+esc(r[0])+"</h3><p>"+rich(r[1],r[2])+"</p></div>").join("");
+  $("#l-home").textContent=t.home;$("#l-models").textContent=t.models;
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(b){lang=b.dataset.lang;try{localStorage.setItem("parcela-lang",lang);}catch(err){}render();}
+});
+render();
+})();
+</script>
+</body>
+</html>
