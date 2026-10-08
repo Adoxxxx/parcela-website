@@ -29,13 +29,20 @@ Neue Datei unter demselben Namen in `media/` ablegen (`hero.mp4`, `hero.jpg`, `o
 
 ## Veröffentlichen
 
-Die Seite läuft über GitHub Pages aus dem Zweig `main`. Jeder Push auf `main` aktualisiert sie nach ein bis zwei Minuten.
+Die Seite läuft über GitHub Pages aus dem Zweig `main` unter https://www.parcela.at. Jeder Push auf `main` aktualisiert sie nach ein bis zwei Minuten.
 
-## Eigene Domain
+## Domain
 
-1. Domain kaufen und beim Anbieter einen CNAME-Eintrag auf `<benutzername>.github.io` setzen (für die Hauptdomain die vier A-Einträge von GitHub Pages).
-2. Im Repository unter Settings, Pages die Domain eintragen und „Enforce HTTPS" aktivieren.
-3. Danach in den drei HTML-Dateien `og:image` und `canonical` mit der echten Adresse ergänzen.
+Die Seite läuft unter https://www.parcela.at. Die Datei `CNAME` im Repository legt das fest und darf nicht gelöscht werden.
+
+DNS bei Hostinger:
+
+| Typ | Name | Ziel |
+|---|---|---|
+| CNAME | www | adoxxxx.github.io |
+| A | @ | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 |
+
+Aufrufe von parcela.at leitet GitHub auf www.parcela.at weiter.
 
 ## Firmendaten
 
